@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">CST2335_Final_Project</string>
+    <string name="temperatureButton">Temperature</string>
+    <string name="fuelButton">Fuel Level</string>
+    <string name="radioButton">Radio</string>
+    <string name="gpsButton">GPS</string>
+    <string name="lightsButton">Lights</string>
+    <string name="odometerButton">Odometer</string>
+    <string name="driveButton">Cruise Control</string>
 </resources>

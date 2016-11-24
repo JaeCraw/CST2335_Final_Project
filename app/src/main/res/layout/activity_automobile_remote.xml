@@ -7,6 +7,106 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
+    android:background="@color/colorOrange"
     tools:context="com.example.jae.cst2335_final_project.AutomobileRemoteActivity">
+
+
+    <Button
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:text="@string/temperatureButton"
+        android:id="@+id/temperatureButton"
+        android:drawableLeft="@drawable/temperature"
+        android:background="@drawable/buttonproperties"
+        android:layout_alignParentStart="true"
+        android:textStyle="bold"
+        android:textAlignment="textStart"
+        android:textColor="#ffffff"
+        android:textSize="20dp"
+        android:shadowColor="#ffffff" />
+
+    <Button
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:text="@string/fuelButton"
+        android:id="@+id/fuelButton"
+        android:drawableLeft="@drawable/fuel"
+        android:layout_below="@+id/temperatureButton"
+        android:background="@drawable/buttonproperties"
+        android:layout_alignParentStart="true"
+        android:textStyle="bold"
+        android:textAlignment="textStart"
+        android:textSize="20dp"
+        android:textColor="#ffffff" />
+
+    <Button
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:text="@string/radioButton"
+        android:id="@+id/radioButton"
+        android:drawableLeft="@drawable/radio"
+        android:layout_below="@+id/fuelButton"
+        android:background="@drawable/buttonproperties"
+        android:layout_alignParentStart="true"
+        android:textStyle="bold"
+        android:textAlignment="textStart"
+        android:textSize="20dp"
+        android:textColor="#ffffff" />
+
+    <Button
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:text="@string/gpsButton"
+        android:id="@+id/gpsButton"
+        android:drawableLeft="@drawable/gps"
+        android:layout_below="@+id/radioButton"
+        android:background="@drawable/buttonproperties"
+        android:layout_alignParentStart="true"
+        android:textStyle="bold"
+        android:textAlignment="textStart"
+        android:textSize="20dp"
+        android:textColor="#ffffff" />
+
+    <Button
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:text="@string/lightsButton"
+        android:id="@+id/lightsButton"
+        android:drawableLeft="@drawable/lights"
+        android:layout_below="@+id/gpsButton"
+        android:background="@drawable/buttonproperties"
+        android:layout_alignParentStart="true"
+        android:textStyle="bold"
+        android:textAlignment="textStart"
+        android:textSize="20dp"
+        android:textColor="#ffffff" />
+
+    <Button
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:text="@string/odometerButton"
+        android:id="@+id/odometerButton"
+        android:drawableLeft="@drawable/odometer"
+        android:layout_below="@+id/lightsButton"
+        android:background="@drawable/buttonproperties"
+        android:layout_alignParentStart="true"
+        android:textStyle="bold"
+        android:textAlignment="textStart"
+        android:textSize="20dp"
+        android:textColor="#ffffff" />
+
+    <Button
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:text="@string/driveButton"
+        android:id="@+id/driveButton"
+        android:drawableLeft="@drawable/drive"
+        android:layout_below="@+id/odometerButton"
+        android:background="@drawable/buttonproperties"
+        android:layout_alignParentStart="true"
+        android:textStyle="bold"
+        android:textAlignment="textStart"
+        android:textSize="20dp"
+        android:textColor="#ffffff" />
 
 </RelativeLayout>
