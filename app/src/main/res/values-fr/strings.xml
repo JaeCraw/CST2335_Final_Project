@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">CST2335_Final_Project</string>
+    <string-array name="living_room_menu">
+        <item>Lampe 1</item>
+        <item>Lampe 2</item>
+        <item>Lampe 3</item>
+        <item>Télécommande</item>
+        <item>Aveugle</item>
+    </string-array>
+    <string name="lamp1">Lampe 1</string>
+    <string name="lampOn">Vous avez allumé la lampe</string>
+    <string name="lampOff">Vous avez éteint la lampe</string>
+    <string name="lamp2">Lampe 2</string>
+    <string name="lampAdj">Vous avez éteint la lampe</string>
+    <string name="lamp3">Lampe 3</string>
+    <string name="telivision">Télécommande</string>
+    <string name="tvOn">Vous avez activé la télivision</string>
+    <string name="tvOff">Vous avez désactivé la télivision</string>
+    <string name="chanel">Chanel</string>
+    <string name="volume">Le volume</string>
+    <string name="blinds">Stores</string>
+    <string name="blindsAdj">Vous avez ajusté les stores</string>
+</resources>

@@ -1,3 +1,25 @@
 <resources>
     <string name="app_name">CST2335_Final_Project</string>
+    <string name="title_message_list">Messages</string>
+    <string name="title_message_detail">Message Detail</string>
+    <string-array name="living_room_menu">
+        <item>Lamp 1</item>
+        <item>Lamp 2</item>
+        <item>Lamp 3</item>
+        <item>Telivision Remote</item>
+        <item>Blinds</item>
+    </string-array>
+    <string name="lamp1">Lamp 1</string>
+    <string name="lampOn">You have turned on the lamp</string>
+    <string name="lampOff">You have turned off the lamp</string>
+    <string name="lamp2">Lamp 2</string>
+    <string name="lampAdj">You have adjusted the lamp</string>
+    <string name="lamp3">Lamp 3</string>
+    <string name="telivision">Telivision Remote</string>
+    <string name="tvOn">You have turned on the telivision</string>
+    <string name="tvOff">You have turned off the telivision</string>
+    <string name="chanel">Chanel</string>
+    <string name="volume">Volume</string>
+    <string name="blinds">Blinds</string>
+    <string name="blindsAdj">You have adjusted the blinds</string>
 </resources>

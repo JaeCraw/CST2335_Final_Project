@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.example.jae.cst2335_final_project.LivingRoomTvRemote">
+
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/okButton"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/abc_btn_radio_to_on_mtrl_000" />
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/upArrow"
+        android:background="@android:drawable/arrow_up_float"
+        android:layout_above="@id/okButton"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="46dp" />
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/downArrow"
+        android:background="@android:drawable/arrow_down_float"
+        android:layout_below="@+id/okButton"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="46dp" />
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/rightArrow"
+        android:background="@android:drawable/arrow_down_float"
+        android:layout_alignLeft="@+id/okButton"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="60dp"
+        android:rotation="270"/>
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/leftArrow"
+        android:background="@android:drawable/arrow_down_float"
+        android:layout_alignRight="@+id/okButton"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="60dp"
+        android:rotation="90"/>
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/power"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:background="@android:drawable/ic_lock_power_off" />
+
+    <ProgressBar
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/volume"
+        android:max="50"
+        android:layout_below="@+id/downArrow"
+        android:layout_toEndOf="@+id/power" />
+
+
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/channelChooser"
+        android:layout_alignTop="@+id/power"
+        android:hint="Choose Channel"
+        android:inputType="number"
+        android:layout_toEndOf="@+id/power"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Ok"
+        android:id="@+id/channelButton"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignEnd="@id/channelChooser"/>
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/backButtonTv"
+        android:background="@android:drawable/ic_menu_revert"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="40dp"
+        android:layout_marginBottom="82dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="@string/volume"
+        android:id="@+id/volumeTXT"
+        android:layout_below="@+id/volume"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Channel 000"
+        android:id="@+id/channelTXT"
+        android:layout_above="@+id/upArrow"
+        android:layout_toStartOf="@+id/okButton"
+        android:layout_marginBottom="30dp" />
+
+
+</RelativeLayout>

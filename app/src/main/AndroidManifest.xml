@@ -18,7 +18,12 @@
         <activity android:name=".LivingRoomRemoteActivity" />
         <activity android:name=".AutomobileRemoteActivity" />
         <activity android:name=".HouseSettingsRemote" />
-        <activity android:name=".KithchenRemoteActivity"></activity>
+        <activity android:name=".KithchenRemoteActivity" />
+        <activity android:name=".LivingRoomLamp1" />
+        <activity android:name=".LivingRoomLamp2" />
+        <activity android:name=".LivingRoomTvRemote" />
+        <activity android:name=".LivingRoomBlinds" />
+        <activity android:name=".LivingRoomLamp3" />
     </application>
 
 </manifest>
