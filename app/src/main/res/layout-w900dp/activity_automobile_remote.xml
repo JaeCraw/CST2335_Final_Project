@@ -12,14 +12,16 @@
         android:layout_width="match_parent"
         android:layout_height="40dp"
 
+        android:background="#27e737"
 
         app:popupTheme="@style/PopupOverlay"
         android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:background="#37d12c">       <View
-    android:layout_width="1dip"
-    android:layout_height="match_parent"
-    android:background="#ffffff" /></android.support.v7.widget.Toolbar>
+        android:layout_alignParentTop="true" />
+
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/listView" />
 
     <RelativeLayout
     android:layout_width="match_parent"
@@ -32,15 +34,14 @@
             android:id="@+id/temperatureButton"
             android:drawableLeft="@drawable/temperature"
             android:background="@drawable/buttonproperties"
-android:layout_marginTop="@dimen/activity_horizontal_margin"
+
             android:textStyle="bold"
             android:textAlignment="textStart"
             android:textColor="#ffffff"
             android:textSize="20dp"
             android:shadowColor="#ffffff"
-            android:layout_alignParentTop="true"
-            android:layout_marginBottom="@dimen/activity_horizontal_margin"
-            android:layout_centerHorizontal="true" />
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true" />
 
         <Button
             android:layout_width="250dp"
@@ -49,17 +50,14 @@ android:layout_marginTop="@dimen/activity_horizontal_margin"
             android:id="@+id/fuelButton"
             android:drawableLeft="@drawable/fuel"
             android:background="@drawable/buttonproperties"
+            android:layout_alignParentStart="true"
             android:textStyle="bold"
             android:textAlignment="textStart"
             android:textSize="20dp"
             android:textColor="#ffffff"
             android:layout_below="@+id/radioButton"
-            android:layout_marginTop="@dimen/activity_horizontal_margin1"
-            android:layout_marginBottom="@dimen/activity_horizontal_margin1"
-            android:layout_alignEnd="@+id/radioButton"
-            android:layout_alignStart="@+id/radioButton" />
-
-
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentEnd="true" />
 
         <Button
             android:layout_width="250dp"
@@ -68,15 +66,14 @@ android:layout_marginTop="@dimen/activity_horizontal_margin"
             android:id="@+id/radioButton"
             android:drawableLeft="@drawable/radio"
             android:background="@drawable/buttonproperties"
+            android:layout_alignParentStart="true"
             android:textStyle="bold"
             android:textAlignment="textStart"
             android:textSize="20dp"
             android:textColor="#ffffff"
             android:layout_below="@+id/gpsButton"
-            android:layout_alignEnd="@+id/gpsButton"
-            android:layout_marginTop="@dimen/activity_horizontal_margin1"
-            android:layout_marginBottom="@dimen/activity_horizontal_margin1"
-            android:layout_alignStart="@+id/gpsButton" />
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentEnd="true" />
 
         <Button
             android:layout_width="250dp"
@@ -85,15 +82,14 @@ android:layout_marginTop="@dimen/activity_horizontal_margin"
             android:id="@+id/gpsButton"
             android:drawableLeft="@drawable/list"
             android:background="@drawable/buttonproperties"
+            android:layout_alignParentStart="true"
             android:textStyle="bold"
             android:textAlignment="textStart"
             android:textSize="20dp"
             android:textColor="#ffffff"
             android:layout_below="@+id/odometerButton"
-            android:layout_alignEnd="@+id/odometerButton"
-            android:layout_alignStart="@+id/odometerButton"
-            android:layout_marginTop="@dimen/activity_horizontal_margin1"
-            android:layout_marginBottom="@dimen/activity_horizontal_margin1"/>
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentEnd="true" />
 
         <Button
             android:layout_width="250dp"
@@ -102,15 +98,14 @@ android:layout_marginTop="@dimen/activity_horizontal_margin"
             android:id="@+id/lightsButton"
             android:drawableLeft="@drawable/lights"
             android:background="@drawable/buttonproperties"
+            android:layout_alignParentStart="true"
             android:textStyle="bold"
             android:textAlignment="textStart"
             android:textSize="20dp"
             android:textColor="#ffffff"
             android:layout_below="@+id/fuelButton"
-            android:layout_alignEnd="@+id/fuelButton"
-            android:layout_alignStart="@+id/radioButton"
-            android:layout_marginTop="@dimen/activity_horizontal_margin1"
-            android:layout_marginBottom="@dimen/activity_horizontal_margin1"/>
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentEnd="true" />
 
         <Button
             android:layout_width="250dp"
@@ -119,15 +114,14 @@ android:layout_marginTop="@dimen/activity_horizontal_margin"
             android:id="@+id/odometerButton"
             android:drawableLeft="@drawable/odometer"
             android:background="@drawable/buttonproperties"
+            android:layout_alignParentStart="true"
             android:textStyle="bold"
             android:textAlignment="textStart"
             android:textSize="20dp"
             android:textColor="#ffffff"
             android:layout_below="@+id/temperatureButton"
-            android:layout_alignEnd="@+id/temperatureButton"
-            android:layout_alignStart="@+id/temperatureButton"
-            android:layout_marginTop="@dimen/activity_horizontal_margin1"
-            android:layout_marginBottom="@dimen/activity_horizontal_margin1"/>
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentEnd="true" />
 
         <Button
             android:layout_width="250dp"
@@ -136,19 +130,21 @@ android:layout_marginTop="@dimen/activity_horizontal_margin"
             android:id="@+id/driveButton"
             android:drawableLeft="@drawable/drive"
             android:background="@drawable/buttonproperties"
+            android:layout_alignParentStart="true"
             android:textStyle="bold"
             android:textAlignment="textStart"
             android:textSize="20dp"
             android:textColor="#ffffff"
             android:layout_below="@+id/lightsButton"
-            android:layout_alignEnd="@+id/lightsButton"
-            android:layout_alignStart="@+id/lightsButton"
-            android:layout_marginTop="@dimen/activity_horizontal_margin1"
-            android:layout_marginBottom="@dimen/activity_horizontal_margin1"/>
-
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentEnd="true" />
 
     </RelativeLayout>
-
+    <FrameLayout
+        android:id="@+id/container"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_weight="3"/>
 </LinearLayout>
 
 

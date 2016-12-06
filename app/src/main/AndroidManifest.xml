@@ -2,23 +2,74 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.jae.cst2335_final_project">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
-        android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+        <uses-library android:name="com.google.android.maps" />
+
+        <activity
+            android:name=".MainActivity"
+            android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".LivingRoomRemoteActivity" />
-        <activity android:name=".AutomobileRemoteActivity" />
-        <activity android:name=".HouseSettingsRemote" />
-        <activity android:name=".KithchenRemoteActivity"></activity>
+        <activity
+            android:name=".LivingRoomRemoteActivity"
+            android:label="Living Room" />
+        <activity
+            android:name=".AutomobileRemoteActivity"
+            android:drawableLeft="@drawable/drive"
+            android:label="AUTOMOBILE" />
+        <activity
+            android:name=".HouseSettingsRemote"
+            android:label="House" />
+        <activity
+            android:name=".KithchenRemoteActivity"
+            android:label="Kitchen" />
+        <activity
+            android:name=".TemperaturActivity"
+            android:label="AUTOMOBILE" />
+        <activity
+            android:name=".CruiseActivity"
+            android:label="AUTOMOBILE" />
+        <activity
+            android:name=".FuelActivity"
+            android:label="AUTOMOBILE"
+            android:textColor="#f60707"/>
+        <activity
+            android:name=".ToDoListActivity"
+            android:label="AUTOMOBILE" />
+        <activity
+            android:name=".LightsActivity"
+            android:label="AUTOMOBILE" />
+        <activity
+            android:name=".OdometerActivity"
+            android:label="AUTOMOBILE" />
+        <activity
+            android:name=".RadioActivity"
+            android:label="AUTOMOBILE" />
+
+
+        <!--
+             The API key for Google Maps-based APIs is defined as a string resource.
+             (See the file "res/values/google_maps_api.xml").
+             Note that the API key is linked to the encryption key used to sign the APK.
+             You need a different API key for each encryption key, including the release key that is used to
+             sign the APK for publishing.
+             You can define the keys for the debug and release targets in src/debug/ and src/release/. 
+        -->
+
+
+
     </application>
 
 </manifest>

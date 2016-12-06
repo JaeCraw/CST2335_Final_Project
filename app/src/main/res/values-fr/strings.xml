@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="title">Paramètres intelligents</string>
+    <string name="selectOption">Choisir une option</string>
+    <string name="autoString">Télécommande automobile</string>
+    <string name="houseString">Paramètres de la maison</string>
+    <string name="kitchenString">Télécommande de cuisine</string>
+    <string name="livingroomString">Téléviseur</string>
+    <string name="helpString">Aidez-moi</string>
+
+</resources>

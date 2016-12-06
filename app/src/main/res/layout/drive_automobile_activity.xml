@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorOrange">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+
+        android:background="#27e737"
+
+        app:popupTheme="@style/PopupOverlay"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true" >  <View
+        android:layout_width="1dip"
+        android:layout_height="match_parent"
+        android:background="#ffffff" /></android.support.v7.widget.Toolbar>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="CRUISE CONTROL"
+        android:id="@+id/textView26"
+        android:layout_gravity="center_horizontal"
+        android:textColor="#fb0404"
+        android:textSize="25dp"
+        android:layout_marginTop="15dp"
+        android:textStyle="bold" />
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <Switch
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="MAIN CRUISE ON/OFF      "
+        android:id="@+id/switch6"
+        android:checked="false"
+        android:layout_marginTop="50dp"
+        android:textSize="20dp" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageView3" />
+
+</RelativeLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ACTIVATED MODE:"
+        android:id="@+id/textView27"
+        android:layout_marginTop="20dp"
+        android:textSize="20dp" />
+
+    <Button
+        android:layout_width="140dp"
+        android:layout_height="wrap_content"
+        android:text="ON"
+        android:id="@+id/button9"
+        android:background="@drawable/buttonproperties1"
+        android:textSize="20dp"
+        android:textColor="#fc0707" />
+
+    <Button
+        android:layout_width="136dp"
+        android:layout_height="wrap_content"
+        android:text="OFF"
+        android:id="@+id/button10"
+        android:background="@drawable/buttonproperties1"
+        android:textSize="20dp"
+        android:textColor="#fc0707" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="MANUAL CRUISE CONTROL:"
+        android:id="@+id/textView29"
+        android:background="#f6bbbb"
+        android:layout_marginTop="20dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ENTER SPEED TO ACTIVATE AT:"
+        android:id="@+id/textView28"
+        android:layout_marginTop="20dp"
+        android:textSize="20dp" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:ems="10"
+        android:id="@+id/editText3"
+        android:textColor="#fa0505"
+        android:textSize="25dp" />
+
+    <Button
+        android:layout_width="149dp"
+        android:layout_height="wrap_content"
+        android:text="SET"
+        android:id="@+id/button11"
+        android:background="@drawable/buttonproperties1"/>
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="60"
+        android:id="@+id/textView30"
+        android:textColor="#fbf7f7"
+        android:textSize="60dp"
+        android:layout_centerVertical="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="km/h"
+        android:id="@+id/textView31"
+        android:layout_gravity="right"
+        android:textSize="25dp"
+        android:layout_centerVertical="true"
+        android:layout_toEndOf="@+id/textView30" />
+
+</RelativeLayout>
+
+
+</LinearLayout>

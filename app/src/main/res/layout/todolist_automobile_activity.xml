@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorOrange">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+
+        android:background="#27e737"
+
+        app:popupTheme="@style/PopupOverlay"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true" >  <View
+        android:layout_width="1dip"
+        android:layout_height="match_parent"
+        android:background="#ffffff" /></android.support.v7.widget.Toolbar>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Appointments/To Do List"
+        android:id="@+id/textView6"
+        android:textColor="#f80505"
+        android:layout_gravity="center_horizontal"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:layout_marginTop="15dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Add/Remove Items"
+        android:id="@+id/textView7"
+        android:textColor="#0521f8"
+        android:layout_gravity="center_horizontal"
+        android:textSize="15dp"
+        android:textStyle="italic" />
+
+
+    <Button
+        android:layout_width="182dp"
+        android:layout_height="wrap_content"
+        android:text="+ ADD ITEM"
+        android:id="@+id/button7"
+        android:layout_gravity="right"
+        android:background="@drawable/buttonproperties"
+        android:textColor="#ffffff"
+        android:textSize="20dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="5dp"/>
+
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="457dp"
+        android:id="@+id/listView2"
+        android:divider="#f5efef"
+        android:dividerHeight="5dp"
+        android:background="@drawable/buttonproperties1"
+        />
+
+
+</LinearLayout>
