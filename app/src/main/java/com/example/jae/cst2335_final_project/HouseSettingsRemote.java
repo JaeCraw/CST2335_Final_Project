@@ -89,8 +89,6 @@ public class HouseSettingsRemote extends AppCompatActivity {
                 toast3.show();
                 break;
 
-//            dsad
-
             case R.id.action_five:
                 AlertDialog.Builder builder = new AlertDialog.Builder(Context);
                 String dialog_title = (String)getString(R.string.Help);

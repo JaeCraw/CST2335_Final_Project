@@ -30,6 +30,8 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.Locale;
+
 public class WeatherActivity extends AppCompatActivity {
     protected static final String URL_STRING = "http://api.openweathermap.org/data/2.5/weather?q=ottawa,ca&APPID=d99666875e0e51521f0040a3d97d0f6a&mode=xml&units=metric";
     protected static final String URL_IMAGE = "http://openweathermap.org/img/w/";
@@ -135,9 +137,9 @@ public class WeatherActivity extends AppCompatActivity {
         protected void onPostExecute(String s) {
             System.out.println("Postexecute");
             super.onPostExecute(s);
-            currentTextView.setText("Today: " + String.format("%.1f", Double.parseDouble(currentTemp)) + "\u00b0");
-            minTextView.setText("Min: " + String.format("%.1f", Double.parseDouble(minTemp)) + "\u00b0");
-            maxTextView.setText("Max: " + String.format("%.1f", Double.parseDouble(maxTemp)) + "\u00b0");
+            currentTextView.setText("Today: " + String.format(Locale.getDefault(),"%.1f", Double.parseDouble(currentTemp)) + "\u00b0");
+            minTextView.setText("Min: " + String.format(Locale.getDefault(),"%.1f", Double.parseDouble(minTemp)) + "\u00b0");
+            maxTextView.setText("Max: " + String.format(Locale.getDefault(),"%.1f", Double.parseDouble(maxTemp)) + "\u00b0");
             weatherImageView.setImageBitmap(weatherImage);
             normProgBar.setVisibility(View.INVISIBLE);
         }

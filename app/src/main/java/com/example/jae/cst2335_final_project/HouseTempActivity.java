@@ -73,7 +73,7 @@ public class HouseTempActivity extends AppCompatActivity {
 
         addButton.setOnClickListener(new View.OnClickListener() {
 
-            public void onClick(View v) {
+                    public void onClick(View v) {
 
 
                 final AlertDialog.Builder builder = new AlertDialog.Builder(HouseTempActivity.this);

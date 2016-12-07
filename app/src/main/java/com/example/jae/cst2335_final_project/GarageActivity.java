@@ -1,5 +1,6 @@
 package com.example.jae.cst2335_final_project;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -10,10 +11,12 @@ import android.preference.PreferenceManager;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Switch;
 import android.widget.Toast;
@@ -40,6 +43,54 @@ public class GarageActivity extends AppCompatActivity {
         imageView1 = (ImageView) findViewById(R.id.imageView);
         switch1 = (Switch) findViewById(R.id.switch1);
 
+
+        openButton.setOnClickListener(new View.OnClickListener() {
+
+            public void onClick(View v) {
+                imageView1.setVisibility(View.VISIBLE);
+                imageView1.setImageResource(R.drawable.garagelight);
+                switch1.isActivated();
+                Toast toast4 = Toast.makeText(getApplicationContext(), "Garage Door Open" , Toast.LENGTH_SHORT);
+                toast4.show();
+                Toast toast8 = Toast.makeText(getApplicationContext(), "Garage Light On" , Toast.LENGTH_SHORT);
+                toast8.show();
+            }
+        });
+
+        closeButton.setOnClickListener(new View.OnClickListener() {
+
+            public void onClick(View v) {
+                imageView1.setVisibility(View.INVISIBLE);
+                imageView1.setImageResource(R.drawable.garagelight);
+                switch1.isActivated();
+                Toast toast5 = Toast.makeText(getApplicationContext(), "Garage Door Closed" , Toast.LENGTH_SHORT);
+                toast5.show();
+                Toast toast9 = Toast.makeText(getApplicationContext(), "Garage Light Off" , Toast.LENGTH_SHORT);
+                toast9.show();
+
+            }
+        });
+
+
+        switch1.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View arg0) {
+
+                if (switch1.isChecked()) {
+                    imageView1.setVisibility(View.VISIBLE);
+                    imageView1.setImageResource(R.drawable.garagelight);
+                    Toast toast6 = Toast.makeText(getApplicationContext(), "Garage Light On" , Toast.LENGTH_SHORT);
+                    toast6.show();
+
+                } else {
+                    imageView1.setVisibility(View.INVISIBLE);
+                    Toast toast7 = Toast.makeText(getApplicationContext(),"Garage Light Off" , Toast.LENGTH_SHORT);
+                    toast7.show();
+                }
+            }
+        });
+
     }
 
     public boolean onCreateOptionsMenu(Menu m) {
@@ -48,31 +99,6 @@ public class GarageActivity extends AppCompatActivity {
     }
 
 
-    public void setGarageproperties(){
-        openButton.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View arg0) {
-
-                if (openButton.isPressed()) {
-                    final SharedPreferences mSharedPrefs = PreferenceManager.getDefaultSharedPreferences(Context1);
-                    SharedPreferences.Editor editor = mSharedPrefs.edit();
-                    editor.putBoolean("mainLights On", true);
-                    editor.commit();
-                    imageView1.setVisibility(View.VISIBLE);
-                    imageView1.setImageResource(R.drawable.garagelight);
-                    switch1.isActivated();
-
-                } else {
-                    final SharedPreferences mSharedPrefs = PreferenceManager.getDefaultSharedPreferences(Context1);
-                    SharedPreferences.Editor editor = mSharedPrefs.edit();
-                    editor.putBoolean("mainLights Off", false);
-                    editor.commit();
-                    imageView1.setVisibility(View.INVISIBLE);
-                }
-            }
-        });
-    }
 
     public boolean onOptionsItemSelected(MenuItem mi) {
         int id = mi.getItemId();
