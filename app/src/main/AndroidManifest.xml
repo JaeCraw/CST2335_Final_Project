@@ -18,7 +18,23 @@
         <activity android:name=".LivingRoomRemoteActivity" />
         <activity android:name=".AutomobileRemoteActivity" />
         <activity android:name=".HouseSettingsRemote" />
-        <activity android:name=".KithchenRemoteActivity"></activity>
+        <activity android:name=".KithchenRemoteActivity" />
+        <activity
+            android:name=".KitchenApplianceListActivity"
+            android:label="@string/title_kitchenappliance_list"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".KitchenApplianceDetailActivity"
+            android:label="@string/title_kitchenappliance_detail"
+            android:parentActivityName=".KitchenApplianceListActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.jae.cst2335_final_project.KitchenApplianceListActivity" />
+        </activity>
+        <activity android:name=".KitchenLight" />
+        <activity android:name=".Fridge" />
+        <activity android:name=".Microwave"></activity>
     </application>
 
 </manifest>
