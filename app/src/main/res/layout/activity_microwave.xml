@@ -54,7 +54,7 @@
         android:layout_height="wrap_content"
         android:text="reset"
         android:enabled="false"
-        android:id="@+id/button"
+        android:id="@+id/microwaveResetButton"
         android:layout_alignTop="@+id/onOffButton"
         android:layout_toEndOf="@+id/onOffButton" />
 

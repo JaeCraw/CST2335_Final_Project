@@ -1,11 +1,8 @@
 package com.example.jae.cst2335_final_project;
 
-import android.content.Context;
 import android.os.CountDownTimer;
-import android.os.Vibrator;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -14,8 +11,9 @@ import android.widget.Toast;
 
 public class Microwave extends AppCompatActivity {
 
-    private Button onOff;
+    private Button on;
     private Button stop;
+    private Button reset;
     private EditText inputTime;
     private ProgressBar cookingTimer;
     private static boolean turnOn = true;
@@ -29,13 +27,13 @@ public class Microwave extends AppCompatActivity {
         setContentView(R.layout.activity_microwave);
 
         //link to all view items
-        onOff = (Button) findViewById(R.id.onOffButton);
+        on = (Button) findViewById(R.id.onOffButton);
         stop = (Button) findViewById(R.id.microwave_stop);
         inputTime = (EditText)findViewById(R.id.inputTime);
         cookingTimer = (ProgressBar) findViewById(R.id.microwave_progress_bar);
         cookingTimer.setProgress(0);
 
-        onOff.setOnClickListener(new View.OnClickListener() {
+        on.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if(turnOn){
@@ -85,29 +83,51 @@ public class Microwave extends AppCompatActivity {
             }
         });
 
+        reset = (Button) findViewById(R.id.microwaveResetButton);
+
+        reset.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                timer.cancel();
+                resetClock();
+                Toast.makeText(getApplicationContext(), "Timer reset", Toast.LENGTH_SHORT).show();
+            }
+        });
+
     }
 
     public void turnOn(){
         // microwave is off
         stop.setText("stop");
         stop.setEnabled(true);
+        reset.setEnabled(true);
         cookingTimer.setVisibility(View.VISIBLE);
 
         //turn on microwave and allow microwave to be turned off
         turnOn = false;
-        onOff.setText("On");
     }
 
     public void turnOff(){
         // microwave is on
         stop.setEnabled(false);
+        reset.setEnabled(false);
         cookTime = 0;
         progress = 0;
         cookingTimer.setVisibility(View.INVISIBLE);
         inputTime.setText("");
         //turn off microwave and allow microwave to be turned on
         turnOn = true;
-        onOff.setText("On");
+    }
+
+    public void resetClock(){
+        stop.setEnabled(false);
+        reset.setEnabled(false);
+        progress = 0;
+        cookingTimer.setVisibility(View.INVISIBLE);
+
+        //reset microwave and allow microwave to be turned on
+        turnOn = true;
+
     }
 
 }
