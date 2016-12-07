@@ -2,5 +2,41 @@
     <string name="app_name">CST2335_Final_Project</string>
     <string name="ok">OK</string>
     <string name="cancel">CANCEL</string>
+
+    //activity_house_settings_remote
+    <string name="garage_housesettings">GARAGE</string>
+    <string nam="housetemp_housesettings">HOUSE TEMPERATURE</string>
+    <string name="outside_housesettings">OUTSIDE WEATHER</string>
+
+    //custom_dialog_add
+    <string name="temp_customdialog">TEMPERATURE:</string>
+    <string name="time_customdialog">TIME:</string>
+
+    //garage_house_activity
     <string name="garage_title">GARAGE SETTINGS</string>
+    <string name="garage_door">Garage Door:</string>
+    <string name="garage_open">OPEN</string>
+    <string name="garage_close">CLOSE</string>
+    <string name="garage_light">Garage Light</string>
+
+    //house_temp_activity
+    <string name="housetemp_housetemp">HOUSE TEMPERATURE</string>
+    <string name="change_temp">Change Temperature</string>
+    <string name="enter_temp">Enter Temperature</string>
+    <string name="change_tempbutton">CHANGE TEMPERATURE</string>
+    <string name="addanddelete">ADD/DELETE SCHEDULE</string>
+    <string name="addbutton">ADD</string>
+
+    //weather_house_activity
+    <string name="weatherforcast">WEATHER FORECAST</string>
+    <string name="statechange">Ottawa, ON</string>e
+    <string name="help_message">
+        Author: Eric Pelley
+    </string>
+    <string name="Help">ABOUT</string>
+
+    <string name="toastauto">AUTOMOBILE SETTINGS</string>
+    <string name="toastkitchen">KITCHEN SETTINGS</string>
+    <string name="toastliving">LIVING ROOM SETTINGS</string>
+
 </resources>

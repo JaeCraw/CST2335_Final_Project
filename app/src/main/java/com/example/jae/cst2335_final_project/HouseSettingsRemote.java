@@ -1,6 +1,9 @@
 package com.example.jae.cst2335_final_project;
 
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -12,6 +15,8 @@ import android.widget.Toast;
 
 public class HouseSettingsRemote extends AppCompatActivity {
 
+    final Context Context = this;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -22,6 +27,7 @@ public class HouseSettingsRemote extends AppCompatActivity {
         Button garagebutton = (Button) findViewById(R.id.button);
         Button housetemp = (Button) findViewById(R.id.button2);
         Button outsideweather = (Button) findViewById(R.id.button3);
+
 
         garagebutton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -65,22 +71,38 @@ public class HouseSettingsRemote extends AppCompatActivity {
             case R.id.action_two:
                 Intent intent1 = new Intent(HouseSettingsRemote.this, AutomobileRemoteActivity.class);
                 startActivity(intent1);
-                Toast toast1 = Toast.makeText(this, "AUTOMOBILE SETTINGS", Toast.LENGTH_SHORT);
+                Toast toast1 = Toast.makeText(this, getString(R.string.toastauto), Toast.LENGTH_SHORT);
                 toast1.show();
                 break;
 
             case R.id.action_four:
                 Intent intent2 = new Intent(HouseSettingsRemote.this, KithchenRemoteActivity.class);
                 startActivity(intent2);
-                Toast toast2 = Toast.makeText(this, "KITCHEN SETTINGS", Toast.LENGTH_SHORT);
+                Toast toast2 = Toast.makeText(this, getString(R.string.toastkitchen), Toast.LENGTH_SHORT);
                 toast2.show();
                 break;
 
             case R.id.action_one:
                 Intent intent3 = new Intent(HouseSettingsRemote.this, LivingRoomRemoteActivity.class);
                 startActivity(intent3);
-                Toast toast3 = Toast.makeText(this, "LIVING ROOM SETTINGS", Toast.LENGTH_SHORT);
+                Toast toast3 = Toast.makeText(this, getString(R.string.toastliving), Toast.LENGTH_SHORT);
                 toast3.show();
+                break;
+
+            case R.id.action_five:
+                AlertDialog.Builder builder = new AlertDialog.Builder(Context);
+                String dialog_title = (String)getString(R.string.Help);
+                builder.setTitle(dialog_title);
+                builder.setIcon(R.drawable.questionmark);
+                String helpMessage = (String)getString(R.string.help_message);
+                builder.setMessage(helpMessage);
+                builder.setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+
+                    }
+                });
+                builder.show();
                 break;
         }
         return true;

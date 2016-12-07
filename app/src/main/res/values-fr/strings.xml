@@ -1,0 +1,40 @@
+<resources>
+    <string name="app_name">CST2335_Final_Project</string>
+    <string name="ok">OUI</string>
+    <string name="cancel">ANNULER</string>
+
+    //activity_house_settings_remote
+    <string name="garage_housesettings">GARAGE</string>
+    <string name="housetemp_housesettings">TEMPÉRATURE DE LA MAISON</string>
+    <string name="outside_housesettings"> À LEXTÉRIEUR DU TEMPS</string>
+
+    //custom_dialog_add
+    <string name="temp_customdialog">TEMPÉRATURE:</string>
+    <string name="time_customdialog">TEMPS:</string>
+
+    //garage_house_activity
+    <string name="garage_title">RÉGLAGES DE GARAGE</string>
+    <string name="garage_door">Porte de garage:</string>
+    <string name="garage_open">OUVERT</string>
+    <string name="garage_close">FERMER</string>
+    <string name="garage_light">Éclairage de garage</string>
+
+    //house_temp_activity
+    <string name="housetemp_housetemp">TEMPÉRATURE DE LA MAISON</string>
+    <string name="change_temp">Changer la température</string>
+    <string name="enter_temp">Entrer la température</string>
+    <string name="change_tempbutton">CHANGEMENT DE TEMPERATURE</string>
+    <string name="addanddelete">AJOUTER/SUPPRIMER LHORAIRE</string>
+    <string name="addbutton">AJOUTER</string>
+
+    //weather_house_activity
+    <string name="weatherforcast">PRÉVISIONS MÉTÉOROLOGIQUES</string>
+    <string name="statechange">Ottawa, ON</string>e
+    <string name="help_message">Auteur: Eric Pelley</string>
+    <string name="Help">SUR</string>
+
+    <string name="toastauto">CONFIGURATION AUTOMOBILE</string>
+    <string name="toastkitchen">RÉGLAGES DE CUISINE</string>
+    <string name="toastliving">CONFIGURATION DE SALON</string>
+
+</resources>

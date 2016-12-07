@@ -51,6 +51,10 @@ public class HouseTempActivity extends AppCompatActivity {
         Button addButton = (Button) findViewById(R.id.button6);
         Button changetempbutton = (Button) findViewById(R.id.button7);
 
+        dbHelper = new DataBaseHelper(HouseTempActivity.this);
+        db = dbHelper.getWritableDatabase();
+
+
         tempArray = new ArrayList<String>();
         tempAdapter = new CustomAdaptor(this);
         tempListView = (ListView) findViewById(R.id.listView);
@@ -126,22 +130,38 @@ public class HouseTempActivity extends AppCompatActivity {
             case R.id.action_two:
                 Intent intent1 = new Intent(HouseTempActivity.this, AutomobileRemoteActivity.class);
                 startActivity(intent1);
-                Toast toast1 = Toast.makeText(this, "AUTOMOBILE SETTINGS", Toast.LENGTH_SHORT);
+                Toast toast1 = Toast.makeText(this, getString(R.string.toastauto), Toast.LENGTH_SHORT);
                 toast1.show();
                 break;
 
             case R.id.action_four:
                 Intent intent2 = new Intent(HouseTempActivity.this, KithchenRemoteActivity.class);
                 startActivity(intent2);
-                Toast toast2 = Toast.makeText(this, "KITCHEN SETTINGS", Toast.LENGTH_SHORT);
+                Toast toast2 = Toast.makeText(this, getString(R.string.toastkitchen), Toast.LENGTH_SHORT);
                 toast2.show();
                 break;
 
             case R.id.action_one:
                 Intent intent3 = new Intent(HouseTempActivity.this, LivingRoomRemoteActivity.class);
                 startActivity(intent3);
-                Toast toast3 = Toast.makeText(this, "LIVING ROOM SETTINGS", Toast.LENGTH_SHORT);
+                Toast toast3 = Toast.makeText(this, getString(R.string.toastliving), Toast.LENGTH_SHORT);
                 toast3.show();
+                break;
+
+            case R.id.action_five:
+                AlertDialog.Builder builder = new AlertDialog.Builder(context);
+                String dialog_title = (String)getString(R.string.Help);
+                builder.setTitle(dialog_title);
+                builder.setIcon(R.drawable.questionmark);
+                String helpMessage = (String)getString(R.string.help_message);
+                builder.setMessage(helpMessage);
+                builder.setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+
+                    }
+                });
+                builder.show();
                 break;
         }
         return true;
