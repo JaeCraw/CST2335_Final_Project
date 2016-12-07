@@ -7,7 +7,7 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/Theme.AppCompat.Light.NoActionBar">
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -16,8 +16,15 @@
             </intent-filter>
         </activity>
         <activity android:name=".LivingRoomRemoteActivity" />
+        <activity android:name=".WeatherActivity"
+            android:label="HOUSE"/>
+        <activity android:name=".HouseTempActivity"
+            android:label="HOUSE"/>
+        <activity android:name=".GarageActivity"
+            android:label="HOUSE"/>
         <activity android:name=".AutomobileRemoteActivity" />
-        <activity android:name=".HouseSettingsRemote" />
+        <activity android:name=".HouseSettingsRemote"
+            android:label="HOUSE"/>
         <activity android:name=".KithchenRemoteActivity"></activity>
     </application>
 

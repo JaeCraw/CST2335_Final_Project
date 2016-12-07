@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#fdc3c3">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="New Text"
+        android:id="@+id/textView8"
+        android:textSize="25dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:textColor="#020202"
+        android:textStyle="bold" />
+
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Delete"
+        android:id="@+id/button8"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:textColor="#f90707" />
+
+</RelativeLayout>
