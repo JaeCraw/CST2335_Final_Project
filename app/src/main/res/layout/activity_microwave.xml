@@ -9,4 +9,54 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.jae.cst2335_final_project.Microwave">
 
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:ems="10"
+        android:id="@+id/inputTime"
+        android:hint="enter_time"
+        android:backgroundTint="@android:color/darker_gray"
+        android:layout_below="@+id/microwave_progress_bar"
+        android:layout_alignParentStart="true" />
+
+    <Button
+        android:text="start"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/onOffButton"
+        android:layout_below="@+id/inputTime"
+        android:layout_alignParentStart="true" />
+
+    <Button
+        android:text="stop"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/microwave_stop"
+        android:enabled="false"
+        android:layout_below="@+id/inputTime"
+        android:layout_toEndOf="@+id/button" />
+
+
+
+    <ProgressBar
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/microwave_progress_bar"
+        android:visibility="invisible"
+        android:max="100"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="reset"
+        android:enabled="false"
+        android:id="@+id/button"
+        android:layout_alignTop="@+id/onOffButton"
+        android:layout_toEndOf="@+id/onOffButton" />
+
+
 </RelativeLayout>
