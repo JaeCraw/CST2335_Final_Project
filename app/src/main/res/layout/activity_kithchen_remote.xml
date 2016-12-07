@@ -22,6 +22,15 @@
         android:layout_height="wrap_content"
         android:text="Microwave"
         android:id="@+id/microwave"
-        android:layout_below="@+id/light"
-        android:layout_alignEnd="@+id/light" />
+        android:layout_alignBaseline="@+id/light"
+        android:layout_alignBottom="@+id/light"
+        android:layout_toEndOf="@+id/light" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Fridge"
+        android:id="@+id/fridge"
+        android:layout_alignBottom="@+id/microwave"
+        android:layout_toEndOf="@+id/microwave" />
 </RelativeLayout>

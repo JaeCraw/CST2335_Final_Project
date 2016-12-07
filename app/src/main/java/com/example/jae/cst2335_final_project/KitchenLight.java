@@ -16,8 +16,6 @@ public class KitchenLight extends AppCompatActivity {
     private Switch kitchenLight;
     private SeekBar kitchenDimmer;
 
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -55,7 +53,7 @@ public class KitchenLight extends AppCompatActivity {
 
                 editer.putInt("Seek1", i);
                 editer.commit();
-                Snackbar.make(findViewById(android.R.id.content), "doopdoop changes the light", Snackbar.LENGTH_LONG)
+                Snackbar.make(findViewById(android.R.id.content), "doopdoop ", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
             }
 

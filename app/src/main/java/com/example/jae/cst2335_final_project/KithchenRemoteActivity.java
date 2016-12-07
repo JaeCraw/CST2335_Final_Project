@@ -10,6 +10,7 @@ public class KithchenRemoteActivity extends AppCompatActivity {
 
     Button btnLight;
     Button microwave;
+    Button fridgeBTN;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +33,16 @@ public class KithchenRemoteActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(KithchenRemoteActivity.this, Microwave.class);
+                startActivity(intent);
+            }
+        });
+
+        fridgeBTN = (Button) findViewById(R.id.fridge);
+
+        fridgeBTN.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(KithchenRemoteActivity.this, Fridge.class);
                 startActivity(intent);
             }
         });
