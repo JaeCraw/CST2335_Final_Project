@@ -2,7 +2,8 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/colorOrange">
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
@@ -17,32 +18,130 @@
         android:layout_height="match_parent"
         android:background="#ffffff" /></android.support.v7.widget.Toolbar>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-
-
-
-
-
-
-
-
-
-
-
-
-    </LinearLayout>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="FUEL LEVEL"
+        android:text="@string/fuel_title"
         android:id="@+id/textView25"
         android:layout_below="@+id/toolbar"
-        android:layout_alignParentStart="true" />
+        android:layout_centerHorizontal="true"
+        android:textColor="#f80808"
+        android:textStyle="bold"
+        android:textSize="30dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="@string/fuel_amount"
+        android:id="@+id/textView22"
+        android:layout_below="@+id/textView25"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="45dp"
+        android:textColor="#131a7e" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="    10    "
+        android:id="@+id/textView23"
+        android:textSize="45dp"
+        android:background="#f9bcbc"
+        android:layout_alignTop="@+id/textView22"
+        android:layout_toEndOf="@+id/textView22" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="litres"
+        android:id="@+id/textView24"
+        android:layout_alignBottom="@+id/textView23"
+        android:layout_toEndOf="@+id/textView23"
+        android:textSize="25dp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="@string/fuel_distance"
+        android:id="@+id/textView33"
+        android:layout_below="@+id/textView23"
+        android:layout_alignEnd="@+id/textView25"
+        android:layout_marginTop="42dp"
+        android:textColor="#172972" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="10"
+        android:id="@+id/textView34"
+        android:layout_below="@+id/textView33"
+        android:textSize="45dp"
+        android:background="#f9d5d5"
+        android:layout_alignStart="@+id/textView23"
+        android:layout_toStartOf="@+id/textView24"
+        android:textAlignment="center" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="km"
+        android:id="@+id/textView35"
+        android:textSize="25dp"
+        android:textStyle="bold"
+        android:layout_alignBottom="@+id/textView34"
+        android:layout_toEndOf="@+id/textView34" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/fill_tank"
+        android:id="@+id/button14"
+        android:background="@drawable/buttonproperties1"
+        android:textColor="#040404"
+        android:textSize="20dp"
+        android:layout_below="@+id/textView34"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="42dp"
+        android:layout_toStartOf="@+id/textView34" />
+
+    <ProgressBar
+        style="?android:attr/progressBarStyleLarge"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:id="@+id/progressBar"
+        android:layout_alignParentBottom="true"
+        android:layout_alignStart="@+id/textView33"
+        android:layout_marginBottom="62dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Gasing up. . ."
+        android:id="@+id/textView37"
+        android:layout_above="@+id/progressBar"
+        android:layout_alignParentStart="true"
+        android:textColor="#12600e"
+        android:textSize="25dp"
+        android:visibility="invisible"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="GAS IS LOW!"
+        android:id="@+id/textView38"
+        android:textColor="#f80909"
+        android:textSize="25dp"
+        android:layout_alignBottom="@+id/button14"
+        android:layout_alignEnd="@+id/textView24"
+        android:textStyle="bold"
+        android:visibility="invisible"/>
 
 
 </RelativeLayout>

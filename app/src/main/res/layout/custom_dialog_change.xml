@@ -10,7 +10,7 @@
         android:layout_marginLeft="4dp"
         android:layout_marginRight="4dp"
         android:layout_marginTop="42dp"
-        android:text="Enter Station#:"
+        android:text="@string/stationString"
         android:layout_alignParentTop="true"
         android:layout_alignParentStart="true"
         android:textColor="#f30707"

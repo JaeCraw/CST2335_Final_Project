@@ -26,10 +26,72 @@
     <string name="cancel1">CANCEL</string>
     <string name="dialog_title">Change Radio Station</string>
 
-    <string name="section_format">Hello World from section: %1$d</string>
+    <string name="autoString">AUTOMOBILE REMOTE</string>
+    <string name="houseString">HOUSE SETTINGS</string>
+    <string name="kitchenString">KITCHEN SMART REMOTE</string>
+    <string name="livingroomString">LIVING ROOM</string>
+    <string name="helpString">HELP</string>
+    <string name="automobile_titleString">AUTOMOBILE</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="tempString">TEMPERATURE</string>
+    <string name="odoString">ODOMETER</string>
+    <string name="listString">TO DO LIST</string>
+    <string name="radioString">RADIO</string>
+    <string name="fuelString">FUEL LEVEL</string>
+    <string name="lightsString">LIGHTS</string>
+    <string name="activityString">ACTIVITY:</string>
+    <string name="timeString">TIME:</string>
+
+    <string name="stationString">Enter Station#:</string>
+    <string name="cruiseString">CRUISE CONTROL</string>
+    <string name="maincString">MAIN CRUISE ON/OFF </string>
+    <string name="acMain">ACTIVATED MODE: </string>
+    <string name="on">ON</string>
+    <string name="off">OFF</string>
+    <string name="driveDistance">DRIVE DISTANCE:</string>
+    <string name="kmDrive">ENTER KILOMETERS TO DRIVE:</string>
+    <string name="set">SET</string>
+
+    <string name="fuel_title">FUEL LEVEL</string>
+    <string name="fuel_amount">FUEL AMOUNT:</string>
+    <string name="fuel_distance">FUEL/DISTANCE AMOUNT:</string>
+    <string name="fill_tank">FILL TANK</string>
+
+    <string name="lights_title">HEADLIGHTS SETTINGS</string>
+    <string name="on_headlights">TURN ON HEADLIGHTS</string>
+    <string name="lights_onoff">LIGHTS ON/OFF</string>
+    <string name="lights_normal">Normal</string>
+    <string name="highbeams">HighBeams</string>
+    <string name="innerlights">Inner Lights:</string>
+    <string name="low">LOW</string>
+    <string name="high">HIGH</string>
+
+    <string name="odometer">ODOMETER</string>
+    <string name="tripA">TRIP A:</string>
+    <string name="tripB">TRIP B:</string>
+
+
+    <string name="radio">RADIO</string>
+    <string name="channel">CHANNEL</string>
+    <string name="station">STATION</string>
+    <string name="firstdes">Press to play station</string>
+    <string name="seconddes">Press and Hold to edit channel</string>
+
+    <string name="temp">TEMPERATURE</string>
+    <string name="front">FRONT</string>
+    <string name="back">BACK</string>
+    <string name="cold">COLD</string>
+    <string name="hot">HOT</string>
+
+    <string name="todo_list">APPOINTMENT/TO DO LIST</string>
+    <string name="sub_title1">ADD/REMOVE ITEMS</string>
+    <string name="add_item">+ ADD ITEM</string>
+
+    <string name="house_settings">HOUSE SETTINGS</string>
+    <string name="kitchen_settings">KITCHEN SETTINGS</string>
+    <string name="living_settings">LIVINGROOM SETTINGS</string>
+    <string name="title_item_list">Items</string>
+    <string name="title_item_detail">Item Detail</string>
 
 
 </resources>

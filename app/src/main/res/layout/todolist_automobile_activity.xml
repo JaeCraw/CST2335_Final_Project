@@ -23,7 +23,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Appointments/To Do List"
+        android:text="@string/todo_list"
         android:id="@+id/textView6"
         android:textColor="#f80505"
         android:layout_gravity="center_horizontal"
@@ -34,7 +34,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Add/Remove Items"
+        android:text="@string/sub_title1"
         android:id="@+id/textView7"
         android:textColor="#0521f8"
         android:layout_gravity="center_horizontal"
@@ -45,7 +45,7 @@
     <Button
         android:layout_width="182dp"
         android:layout_height="wrap_content"
-        android:text="+ ADD ITEM"
+        android:text="@string/add_item"
         android:id="@+id/button7"
         android:layout_gravity="right"
         android:background="@drawable/buttonproperties"

@@ -25,7 +25,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="RADIO"
+        android:text="@string/radio"
         android:id="@+id/textView"
         android:textColor="#f70404"
         android:textSize="20dp"
@@ -36,8 +36,8 @@
     android:layout_height="wrap_content">
 
     <ImageView
-        android:layout_width="115dp"
-        android:layout_height="90dp"
+        android:layout_width="110dp"
+        android:layout_height="80dp"
         android:id="@+id/imageView"
         android:src="@drawable/radiov"
         android:layout_gravity="right"
@@ -47,20 +47,19 @@
 </RelativeLayout>
 
     <TextView
-        android:layout_width="410dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="     STATION"
+        android:text="@string/station"
         android:id="@+id/textView2"
         android:background="#f3ce39"
         android:textColor="#040404"
         android:textSize="30dp"
-        android:layout_gravity="right"
         android:textAlignment="center" />
 
     <TextView
         android:layout_width="193dp"
         android:layout_height="wrap_content"
-        android:text="Press to play station"
+        android:text="@string/firstdes"
         android:id="@+id/textView3"
         android:textSize="20dp"
         android:layout_above="@+id/button"
@@ -69,9 +68,9 @@
         />
 
     <TextView
-        android:layout_width="265dp"
+        android:layout_width="284dp"
         android:layout_height="wrap_content"
-        android:text="Press &amp; Hold to edit channel"
+        android:text="@string/seconddes"
         android:id="@+id/textView4"
         android:textSize="20dp"
         android:layout_below="@+id/textView3"
@@ -80,7 +79,7 @@
     <Button
         android:layout_width="251dp"
         android:layout_height="wrap_content"
-        android:text="CHANNEL"
+        android:text="@string/channel"
         android:background="@drawable/buttonproperties"
         android:textStyle="bold"
         android:textColor="#ffffff"
@@ -93,7 +92,7 @@
     <Button
         android:layout_width="251dp"
         android:layout_height="wrap_content"
-        android:text="CHANNEL"
+        android:text="@string/channel"
         android:background="@drawable/buttonproperties"
         android:textStyle="bold"
         android:textColor="#ffffff"
@@ -106,7 +105,7 @@
     <Button
         android:layout_width="251dp"
         android:layout_height="wrap_content"
-        android:text="CHANNEL"
+        android:text="@string/channel"
         android:background="@drawable/buttonproperties"
         android:textStyle="bold"
         android:textColor="#ffffff"
@@ -119,7 +118,7 @@
     <Button
         android:layout_width="251dp"
         android:layout_height="wrap_content"
-        android:text="CHANNEL4"
+        android:text="@string/channel"
         android:background="@drawable/buttonproperties"
         android:textStyle="bold"
         android:textColor="#ffffff"
@@ -132,7 +131,7 @@
     <Button
         android:layout_width="251dp"
         android:layout_height="wrap_content"
-        android:text="CHANNEL3"
+        android:text="@string/channel"
         android:background="@drawable/buttonproperties"
         android:textStyle="bold"
         android:textColor="#ffffff"
@@ -145,7 +144,7 @@
     <Button
         android:layout_width="251dp"
         android:layout_height="wrap_content"
-        android:text="CHANNEL2"
+        android:text="@string/channel"
         android:background="@drawable/buttonproperties"
         android:textStyle="bold"
         android:textColor="#ffffff"

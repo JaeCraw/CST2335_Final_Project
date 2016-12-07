@@ -1,11 +1,70 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="title">Paramètres intelligents</string>
+    <string name="app_name">Paramètres intelligents</string>
     <string name="selectOption">Choisir une option</string>
     <string name="autoString">Télécommande automobile</string>
     <string name="houseString">Paramètres de la maison</string>
     <string name="kitchenString">Télécommande de cuisine</string>
     <string name="livingroomString">Téléviseur</string>
     <string name="helpString">Aidez-moi</string>
+    <string name="automobile_titleString">voiture</string>
+
+    <string name="tempString">Température</string>
+    <string name="odoString">ODOMÈTRE</string>
+    <string name="listString">Liste de choses à faire</string>
+    <string name="radioString">RADIO</string>
+    <string name="fuelString">Niveau de carburant</string>
+    <string name="lightsString">Lumières</string>
+    <string name="activityString">ACTIVITÉ:</string>
+    <string name="timeString">TEMPS:</string>
+    <string name="stationString">Entrer la station#:</string>
+    <string name="cruiseString">RÉGULATEUR DE VITESSE</string>
+    <string name="maincString">PRINCIPALE CROISIÈRE SUR/DE</string>
+    <string name="acMain">MODE ACTIVÉ: </string>
+    <string name="on">SUR </string>
+    <string name="off">DE </string>
+    <string name="driveDistance">DISTANCE D\'ENTRAÎNEMENT:</string>
+    <string name="kmDrive">ENTRER LES KILOMÈTRES POUR CONDUIRE:</string>
+    <string name="set"> ensemble</string>
+
+    <string name="fuel_title">NIVEAU DE CARBURANT</string>
+    <string name="fuel_amount">MONTANT DE CARBURANT:</string>
+    <string name="fuel_distance">MONTANT DE CARBURANT / DISTANCE:</string>
+    <string name="fill_tank">REMPLIR LE RÉSERVOIR</string>
+
+    <string name="lights_title">RÉGLAGES DES PHARES</string>
+    <string name="on_headlights">ALLUMER LES PHARES</string>
+    <string name="lights_onoff">LUMIÈRES SUR/DE</string>
+    <string name="lights_normal">Ordinaire</string>
+    <string name="highbeams">Poutres hautes</string>
+    <string name="innerlights">Lumières intérieures:</string>
+    <string name="low">FAIBLE</string>
+    <string name="high">HAUTE</string>
+
+    <string name="odometer">ODOMÈTRE</string>
+    <string name="tripA">VOYAGE UNE:</string>
+    <string name="tripB">VOYAGE B:</string>
+
+    <string name="radio">RADIO</string>
+    <string name="channel">CANAL</string>
+    <string name="station">GARE</string>
+    <string name="firstdes">Appuyez sur pour jouer station</string>
+    <string name="seconddes">Appuyez et maintenez enfoncé pour modifier le canal</string>
+
+    <string name="temp">TEMPÉRATURE</string>
+    <string name="front">AVANT</string>
+    <string name="back">ARRIÈRE</string>
+    <string name="cold">DU FROID</string>
+    <string name="hot">CHAUD</string>
+
+
+    <string name="todo_list">NOMINATION / A FAIRE LISTE</string>
+    <string name="sub_title1">AJOUTER / SUPPRIMER DES ARTICLES</string>
+    <string name="add_item">+ AJOUTER UN ITEM</string>
+
+    <string name="house_settings">RÉGLAGES DE LA MAISON</string>
+    <string name="kitchen_settings">RÉGLAGES DE CUISINE</string>
+    <string name="living_settings">CONFIGURATION DE SALON</string>
+
 
 </resources>

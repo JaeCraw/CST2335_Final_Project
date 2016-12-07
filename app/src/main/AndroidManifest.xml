@@ -28,7 +28,7 @@
         <activity
             android:name=".AutomobileRemoteActivity"
             android:drawableLeft="@drawable/drive"
-            android:label="AUTOMOBILE" />
+            android:label="@string/automobile_titleString" />
         <activity
             android:name=".HouseSettingsRemote"
             android:label="House" />
@@ -37,27 +37,26 @@
             android:label="Kitchen" />
         <activity
             android:name=".TemperaturActivity"
-            android:label="AUTOMOBILE" />
+            android:label="@string/automobile_titleString" />
         <activity
             android:name=".CruiseActivity"
             android:label="AUTOMOBILE" />
         <activity
             android:name=".FuelActivity"
-            android:label="AUTOMOBILE"
-            android:textColor="#f60707"/>
+            android:label="@string/automobile_titleString"
+            android:textColor="#f60707" />
         <activity
             android:name=".ToDoListActivity"
-            android:label="AUTOMOBILE" />
+            android:label="@string/automobile_titleString" />
         <activity
             android:name=".LightsActivity"
-            android:label="AUTOMOBILE" />
+            android:label="@string/automobile_titleString" />
         <activity
             android:name=".OdometerActivity"
-            android:label="AUTOMOBILE" />
+            android:label="@string/automobile_titleString" />
         <activity
             android:name=".RadioActivity"
-            android:label="AUTOMOBILE" />
-
+            android:label="@string/automobile_titleString" />
 
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
@@ -68,8 +67,19 @@
              You can define the keys for the debug and release targets in src/debug/ and src/release/. 
         -->
 
-
-
+        <activity
+            android:name=".ItemListActivity"
+            android:label="@string/title_item_list"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"></activity>
+        <activity
+            android:name=".ItemDetailActivity"
+            android:label="@string/title_item_detail"
+            android:parentActivityName=".ItemListActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.jae.cst2335_final_project.ItemListActivity" />
+        </activity>
     </application>
 
 </manifest>

@@ -12,7 +12,7 @@
         android:layout_marginLeft="4dp"
         android:layout_marginRight="4dp"
         android:layout_marginTop="42dp"
-        android:text="ACTIVITY:"
+        android:text="@string/activityString"
         android:layout_alignParentTop="true"
         android:layout_alignParentStart="true"
         android:textColor="#f80606"
@@ -34,7 +34,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
 
-        android:text="TIME:"
+        android:text="@string/timeString"
         android:textColor="#f60808"
         android:textSize="20dp"
         android:layout_below="@+id/editText"

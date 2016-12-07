@@ -21,6 +21,8 @@ public class OdometerActivity extends AppCompatActivity {
     SQLiteDatabase db;
     private boolean mTwoPane;
     final Context context = this;
+    protected CruiseActivity newCruiseActivity;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,21 +47,21 @@ public class OdometerActivity extends AppCompatActivity {
             case R.id.action_three:
                 Intent intent1 = new Intent(OdometerActivity.this, HouseSettingsRemote.class);
                 startActivity(intent1);
-                Toast toast1 = Toast.makeText(this, "HOUSE SETTINGS", Toast.LENGTH_SHORT);
+                Toast toast1 = Toast.makeText(this, getString(R.string.house_settings), Toast.LENGTH_SHORT);
                 toast1.show();
                 break;
 
             case R.id.action_four:
                 Intent intent2 = new Intent(OdometerActivity.this, KithchenRemoteActivity.class);
                 startActivity(intent2);
-                Toast toast2 = Toast.makeText(this, "KITCHEN SETTINGS", Toast.LENGTH_SHORT);
+                Toast toast2 = Toast.makeText(this, getString(R.string.kitchen_settings), Toast.LENGTH_SHORT);
                 toast2.show();
                 break;
 
             case R.id.action_one:
                 Intent intent3 = new Intent(OdometerActivity.this, LivingRoomRemoteActivity.class);
                 startActivity(intent3);
-                Toast toast3 = Toast.makeText(this, "LIVING ROOM SETTINGS", Toast.LENGTH_SHORT);
+                Toast toast3 = Toast.makeText(this, getString(R.string.living_settings), Toast.LENGTH_SHORT);
                 toast3.show();
                 break;
 

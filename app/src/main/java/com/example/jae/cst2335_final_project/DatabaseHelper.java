@@ -41,4 +41,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         Log.i(ACTIVITY_NAME, "Calling onUpgrade, oldVertion=" + olderVersion + " newVersion=" + newVersion);
     }
 
+
+
+
+
 }

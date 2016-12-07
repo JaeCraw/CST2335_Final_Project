@@ -25,11 +25,11 @@ import android.widget.Toast;
 
 public class TemperaturActivity extends AppCompatActivity {
     TextView textview;
-    SeekBar seekbar;
-    SeekBar seekbar1;
-    private boolean mTwoPane;
+    protected SeekBar seekbar;
+    protected SeekBar seekbar1;
     final Context context = this;
-
+    protected SharedPreferences mSharedPrefs;
+    protected SharedPreferences.Editor mEditor;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,30 +46,22 @@ public class TemperaturActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
 
-
-        final SharedPreferences mSharedPrefs = PreferenceManager.getDefaultSharedPreferences(context);
-        SharedPreferences.Editor mEditor = mSharedPrefs.edit();
+//SAVE DATA
+         mSharedPrefs = PreferenceManager.getDefaultSharedPreferences(context);
+         mEditor = mSharedPrefs.edit();
         int mProgress = seekbar1.getProgress();
         int mProgress1 = seekbar.getProgress();
         mEditor.putInt("mMySeekBarProgress", mProgress).commit();
         mEditor.putInt("mMySeekBarProgress", mProgress1).commit();
 
+//RETRIEVE DATA
         int mProgresss = mSharedPrefs.getInt("mMySeekBarProgress", 0);
         int mProgresss1 = mSharedPrefs.getInt("mMySeekBarProgress", 0);
         seekbar1.setProgress(mProgresss);
         seekbar.setProgress(mProgresss1);
 
-        LinearGradient test = new LinearGradient(0.f, 100.f, 400.f, 0.0f,
 
-                new int[] {0xFF0000FF, 0xFF00FFF0, 0xFF00FFFF},
-                null, Shader.TileMode.CLAMP);
-        ShapeDrawable shape = new ShapeDrawable(new RectShape());
-        shape.getPaint().setShader(test);
 
-        SeekBar seekBarFont2 = (SeekBar)findViewById(R.id.seekBar2);
-        SeekBar seekBarFont = (SeekBar)findViewById(R.id.seekBar);
-        seekBarFont.setProgressDrawable( (Drawable)shape );
-        seekBarFont2.setProgressDrawable( (Drawable)shape );
 
         seekbar.setOnSeekBarChangeListener(new OnSeekBarChangeListener() {
 
@@ -123,21 +115,21 @@ public class TemperaturActivity extends AppCompatActivity {
             case R.id.action_three:
                 Intent intent1 = new Intent(TemperaturActivity.this, HouseSettingsRemote.class);
                 startActivity(intent1);
-                Toast toast1 = Toast.makeText(this, "HOUSE SETTINGS", Toast.LENGTH_SHORT);
+                Toast toast1 = Toast.makeText(this, getString(R.string.house_settings), Toast.LENGTH_SHORT);
                 toast1.show();
                 break;
 
             case R.id.action_four:
                 Intent intent2 = new Intent(TemperaturActivity.this, KithchenRemoteActivity.class);
                 startActivity(intent2);
-                Toast toast2 = Toast.makeText(this, "KITCHEN SETTINGS", Toast.LENGTH_SHORT);
+                Toast toast2 = Toast.makeText(this, getString(R.string.kitchen_settings), Toast.LENGTH_SHORT);
                 toast2.show();
                 break;
 
             case R.id.action_one:
                 Intent intent3 = new Intent(TemperaturActivity.this, LivingRoomRemoteActivity.class);
                 startActivity(intent3);
-                Toast toast3 = Toast.makeText(this, "LIVING ROOM SETTINGS", Toast.LENGTH_SHORT);
+                Toast toast3 = Toast.makeText(this, getString(R.string.living_settings), Toast.LENGTH_SHORT);
                 toast3.show();
                 break;
             case R.id.action_five:

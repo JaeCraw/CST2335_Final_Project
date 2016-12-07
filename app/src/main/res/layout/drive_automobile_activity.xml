@@ -23,7 +23,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="CRUISE CONTROL"
+        android:text="@string/cruiseString"
         android:id="@+id/textView26"
         android:layout_gravity="center_horizontal"
         android:textColor="#fb0404"
@@ -36,7 +36,7 @@
     <Switch
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="MAIN CRUISE ON/OFF      "
+        android:text="@string/maincString"
         android:id="@+id/switch6"
         android:checked="false"
         android:layout_marginTop="50dp"
@@ -52,7 +52,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="ACTIVATED MODE:"
+        android:text="@string/acMain"
         android:id="@+id/textView27"
         android:layout_marginTop="20dp"
         android:textSize="20dp" />
@@ -60,7 +60,7 @@
     <Button
         android:layout_width="140dp"
         android:layout_height="wrap_content"
-        android:text="ON"
+        android:text="@string/on"
         android:id="@+id/button9"
         android:background="@drawable/buttonproperties1"
         android:textSize="20dp"
@@ -69,7 +69,7 @@
     <Button
         android:layout_width="136dp"
         android:layout_height="wrap_content"
-        android:text="OFF"
+        android:text="@string/off"
         android:id="@+id/button10"
         android:background="@drawable/buttonproperties1"
         android:textSize="20dp"
@@ -79,7 +79,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="MANUAL CRUISE CONTROL:"
+        android:text="@string/driveDistance"
         android:id="@+id/textView29"
         android:background="#f6bbbb"
         android:layout_marginTop="20dp" />
@@ -87,7 +87,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="ENTER SPEED TO ACTIVATE AT:"
+        android:text="@string/kmDrive"
         android:id="@+id/textView28"
         android:layout_marginTop="20dp"
         android:textSize="20dp" />
@@ -104,9 +104,10 @@
     <Button
         android:layout_width="149dp"
         android:layout_height="wrap_content"
-        android:text="SET"
+        android:text="@string/set"
         android:id="@+id/button11"
-        android:background="@drawable/buttonproperties1"/>
+        android:background="@drawable/buttonproperties1"
+        android:textSize="20dp" />
 <RelativeLayout
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
@@ -125,7 +126,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="km/h"
+        android:text="km"
         android:id="@+id/textView31"
         android:layout_gravity="right"
         android:textSize="25dp"
