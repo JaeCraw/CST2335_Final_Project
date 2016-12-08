@@ -9,28 +9,29 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.jae.cst2335_final_project.KithchenRemoteActivity">
 
+
+
+    <ListView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/listView"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentTop="true" />
+
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="light"
-        android:id="@+id/light"
-        android:layout_alignParentTop="true"
+        android:text="Add"
+        android:id="@+id/AddAppliance"
+        android:layout_alignParentBottom="true"
         android:layout_alignParentStart="true" />
 
-    <Button
-        android:layout_width="wrap_content"
+    <EditText
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Microwave"
-        android:id="@+id/microwave"
-        android:layout_alignBaseline="@+id/light"
-        android:layout_alignBottom="@+id/light"
-        android:layout_toEndOf="@+id/light" />
+        android:id="@+id/appliance_textbox"
+        android:layout_alignParentBottom="true"
+        android:layout_toEndOf="@+id/AddAppliance" />
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Fridge"
-        android:id="@+id/fridge"
-        android:layout_alignBottom="@+id/microwave"
-        android:layout_toEndOf="@+id/microwave" />
+
 </RelativeLayout>

@@ -35,7 +35,7 @@
         android:id="@+id/microwave_stop"
         android:enabled="false"
         android:layout_below="@+id/inputTime"
-        android:layout_toEndOf="@+id/button" />
+        android:layout_toEndOf="@+id/AddAppliance" />
 
 
 
