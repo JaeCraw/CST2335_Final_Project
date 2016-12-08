@@ -7,6 +7,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -51,22 +52,25 @@ public class KithchenRemoteActivity extends AppCompatActivity {
 
         Cursor c = db.rawQuery("SELECT * FROM " + KitchenDataBaseHelper.TABLE_NAME, null);
 
-        if (c!=null) {
-            c.moveToFirst();
-            //Sorts through each row of the db adding it to the list
-            while(!c.isAfterLast()){
+//        if (c!=null) {
+//            c.moveToFirst();
+//            //Sorts through each row of the db adding it to the list
+//            while(!c.isAfterLast()){
+//
+//
+//
+//                list.add(new KitchenDataObject(
+//                        c.getString(c.getColumnIndex(KitchenDataBaseHelper.KEY_TYPE)),
+//                        c.getString(c.getColumnIndex(KitchenDataBaseHelper.KEY_NAME)),
+//                        c.getInt(c.getColumnIndex(KitchenDataBaseHelper.KEY_SETTING))
+//                        ));
+//                applianceAdapter.notifyDataSetChanged();
+//                c.moveToNext();
+//            }
+//        }
 
+        new databaseLoader().execute();
 
-
-                list.add(new KitchenDataObject(
-                        c.getString(c.getColumnIndex(KitchenDataBaseHelper.KEY_TYPE)),
-                        c.getString(c.getColumnIndex(KitchenDataBaseHelper.KEY_NAME)),
-                        c.getInt(c.getColumnIndex(KitchenDataBaseHelper.KEY_SETTING))
-                        ));
-                applianceAdapter.notifyDataSetChanged();
-                c.moveToNext();
-            }
-        }
         addAppliance.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -142,6 +146,34 @@ public class KithchenRemoteActivity extends AppCompatActivity {
 
 
 
+    }
+
+    public class databaseLoader extends AsyncTask{
+
+        @Override
+        protected Object doInBackground(Object[] params) {
+
+            Cursor c = db.rawQuery("SELECT * FROM " + KitchenDataBaseHelper.TABLE_NAME, null);
+
+            if (c!=null) {
+                c.moveToFirst();
+                //Sorts through each row of the db adding it to the list
+                while(!c.isAfterLast()){
+
+
+
+                    list.add(new KitchenDataObject(
+                            c.getString(c.getColumnIndex(KitchenDataBaseHelper.KEY_TYPE)),
+                            c.getString(c.getColumnIndex(KitchenDataBaseHelper.KEY_NAME)),
+                            c.getInt(c.getColumnIndex(KitchenDataBaseHelper.KEY_SETTING))
+                    ));
+                    applianceAdapter.notifyDataSetChanged();
+                    c.moveToNext();
+                }
+            }
+
+            return null;
+        }
     }
 
     public class ApplianceAdapter extends ArrayAdapter<KitchenDataObject>{
