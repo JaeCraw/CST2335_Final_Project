@@ -11,33 +11,38 @@ public class Fridge extends AppCompatActivity {
 
     private SeekBar fridgeTemp;
     private TextView tempText;
+    private TextView fridgeName;
     private int temp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_fridge);
 
+        Bundle b = getIntent().getExtras();
+
         tempText = (TextView) findViewById(R.id.fridgeTemp);
+
+        fridgeName = (TextView) findViewById(R.id.fridgeName);
 
         fridgeTemp = (SeekBar) findViewById(R.id.fridgeTempSlider);
 
         fridgeTemp.setMax(50);
 
-        SharedPreferences seekPref = getSharedPreferences("fTemp", Context.MODE_PRIVATE);
-        fridgeTemp.setProgress(seekPref.getInt("fTemp", 0));
+
+
+        if(b != null){
+            fridgeName.setText(b.getString("name"));
+            fridgeTemp.setProgress(b.getInt("setting"));
+        }
+
 
         tempText.setText((fridgeTemp.getProgress() - 25) + "C");
 
         fridgeTemp.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-
-                SharedPreferences pref = getSharedPreferences("fTemp", Context.MODE_PRIVATE);
-                SharedPreferences.Editor editer = pref.edit();
-
-                editer.putInt("fTemp", progress);
-                editer.commit();
 
                 tempText.setText((progress - 25) + "C");
             }

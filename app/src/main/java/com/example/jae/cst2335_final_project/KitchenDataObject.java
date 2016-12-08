@@ -7,9 +7,9 @@ public class KitchenDataObject {
 
     public String Type;
     public String Name;
-    public String Setting;
+    public int Setting;
 
-    public KitchenDataObject(String type, String name, String setting){
+    public KitchenDataObject(String type, String name, int setting){
         setType(type);
         setName(name);
         setSetting(setting);
@@ -23,7 +23,7 @@ public class KitchenDataObject {
         Name = name;
     }
 
-    public void setSetting(String setting) {
+    public void setSetting(int setting) {
         Setting = setting;
     }
 
@@ -35,7 +35,7 @@ public class KitchenDataObject {
         return Name;
     }
 
-    public String getSetting() {
+    public int getSetting() {
         return Setting;
     }
 }

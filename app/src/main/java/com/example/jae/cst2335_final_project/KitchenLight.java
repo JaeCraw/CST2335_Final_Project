@@ -1,59 +1,71 @@
 package com.example.jae.cst2335_final_project;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.database.sqlite.SQLiteDatabase;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.SeekBar;
 import android.widget.Switch;
+import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ToggleButton;
 
 public class KitchenLight extends AppCompatActivity {
 
+    private TextView lightName;
     private Switch kitchenLight;
     private SeekBar kitchenDimmer;
+    private String name;
+    public KitchenDataBaseHelper kDH;
+    public SQLiteDatabase db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_kitchen_light);
 
-         final SharedPreferences lightPrefs = getSharedPreferences("cst2335_group_assignment", Context.MODE_PRIVATE);
+        System.out.println("onCreate");
+
+        Bundle b = getIntent().getExtras();
+
+        kDH = new KitchenDataBaseHelper(this);
+        db = kDH.getWritableDatabase();
+
+        lightName = (TextView) findViewById(R.id.LightName);
         kitchenLight = (Switch) findViewById(R.id.Kitchen_LightSwitch);
-        kitchenLight.setChecked(lightPrefs.getBoolean("IsKitchenChecked", false));
+        kitchenDimmer = (SeekBar) findViewById(R.id.KitchenLigthDimmer);
+
+
+        if(b != null){
+            name = b.getString("name");
+            lightName.setText(name);
+            kitchenDimmer.setProgress(b.getInt("setting"));
+        }
+
+
         kitchenLight.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                SharedPreferences.Editor editor = lightPrefs.edit();
                 if (kitchenLight.isChecked()){
                     Toast.makeText(KitchenLight.this, "Light is turned on", Toast.LENGTH_SHORT).show();
-                    editor.putBoolean("IsKitchenChecked", true);
-                    editor.commit();
                 }else{
                     Toast.makeText(KitchenLight.this, "Light is turned off", Toast.LENGTH_SHORT).show();
-                    editor.putBoolean("IsKitchenChecked", false);
-                    editor.commit();
                 }
             }
         });
 
-        kitchenDimmer = (SeekBar) findViewById(R.id.KitchenLigthDimmer);
 
-        SharedPreferences seekPref = getSharedPreferences("Seek1", Context.MODE_PRIVATE);
-        kitchenDimmer.setProgress(seekPref.getInt("Seek1", 0));
+
 
         kitchenDimmer.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
-                SharedPreferences pref = getSharedPreferences("Seek1", Context.MODE_PRIVATE);
-                SharedPreferences.Editor editer = pref.edit();
 
-                editer.putInt("Seek1", i);
-                editer.commit();
-                Snackbar.make(findViewById(android.R.id.content), "doopdoop ", Snackbar.LENGTH_LONG)
+                Snackbar.make(findViewById(android.R.id.content), "Light set to: " + kitchenDimmer.getProgress(), Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
             }
 
@@ -67,7 +79,20 @@ public class KitchenLight extends AppCompatActivity {
 
             }
         });
+    }
 
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+
+        System.out.println("onDestroy");
+
+        ContentValues newSetting = new ContentValues();
+        newSetting.put(KitchenDataBaseHelper.KEY_SETTING, kitchenDimmer.getProgress());
+        db.update(KitchenDataBaseHelper.TABLE_NAME, newSetting,
+                KitchenDataBaseHelper.KEY_NAME + "='"+ name + "'", null);
+
+        db.close();
 
 
 

@@ -1,32 +1,29 @@
 package com.example.jae.cst2335_final_project;
 
 import android.app.AlertDialog;
+import android.content.ContentValues;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.RadioButton;
-import android.widget.RadioGroup;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 
 public class KithchenRemoteActivity extends AppCompatActivity {
 
-    Button btnLight;
-    Button microwave;
-    Button fridgeBTN;
+
     public ArrayList<KitchenDataObject> list;
     public ApplianceAdapter applianceAdapter;
     public Button addAppliance;
@@ -49,6 +46,27 @@ public class KithchenRemoteActivity extends AppCompatActivity {
 
         listView.setAdapter(applianceAdapter);
 
+        kDH = new KitchenDataBaseHelper(this);
+        db = kDH.getWritableDatabase();
+
+        Cursor c = db.rawQuery("SELECT * FROM " + KitchenDataBaseHelper.TABLE_NAME, null);
+
+        if (c!=null) {
+            c.moveToFirst();
+            //Sorts through each row of the db adding it to the list
+            while(!c.isAfterLast()){
+
+
+
+                list.add(new KitchenDataObject(
+                        c.getString(c.getColumnIndex(KitchenDataBaseHelper.KEY_TYPE)),
+                        c.getString(c.getColumnIndex(KitchenDataBaseHelper.KEY_NAME)),
+                        c.getInt(c.getColumnIndex(KitchenDataBaseHelper.KEY_SETTING))
+                        ));
+                applianceAdapter.notifyDataSetChanged();
+                c.moveToNext();
+            }
+        }
         addAppliance.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -56,6 +74,13 @@ public class KithchenRemoteActivity extends AppCompatActivity {
             }
         });
 
+
+
+    }
+
+    public void onDestroy(){
+        super.onDestroy();
+        db.close();
     }
 
     public void addNewAppliance() {
@@ -92,7 +117,12 @@ public class KithchenRemoteActivity extends AppCompatActivity {
                         }
 
 
-                        KitchenDataObject kitchenDO = new KitchenDataObject(objectType, nameBox.getText().toString(), null);
+                        KitchenDataObject kitchenDO = new KitchenDataObject(objectType, nameBox.getText().toString(), 0);
+
+                        ContentValues cValues = new ContentValues();
+                        cValues.put(KitchenDataBaseHelper.KEY_NAME, kitchenDO.getName());
+                        cValues.put(KitchenDataBaseHelper.KEY_TYPE, kitchenDO.getType());
+                        db.insert(KitchenDataBaseHelper.TABLE_NAME, null, cValues);
 
                         list.add(kitchenDO);
 
@@ -126,7 +156,7 @@ public class KithchenRemoteActivity extends AppCompatActivity {
             return list.get(position);
         }
 
-        public View getView(int position, View convertView, ViewGroup parent) {
+        public View getView(final int position, View convertView, ViewGroup parent) {
 
             LayoutInflater inflater = KithchenRemoteActivity.this.getLayoutInflater();
 
@@ -142,7 +172,16 @@ public class KithchenRemoteActivity extends AppCompatActivity {
                     @Override
                     public void onClick(View v) {
                         Intent fridge = new Intent(v.getContext(), Fridge.class);
+
+                        Bundle b = new Bundle();
+                        b.putString("name", getItem(position).getName()); //Your id
+                        b.putInt("setting", getItem(position).getSetting());
+                        fridge.putExtras(b);
+
                         startActivity(fridge);
+
+
+
                     }
                 });
 
@@ -155,6 +194,11 @@ public class KithchenRemoteActivity extends AppCompatActivity {
                     @Override
                     public void onClick(View v) {
                         Intent microwave = new Intent(v.getContext(), Microwave.class);
+
+                        Bundle b = new Bundle();
+                        b.putString("name", getItem(position).getName());
+                        microwave.putExtras(b);
+
                         startActivity(microwave);
                     }
                 });
@@ -168,7 +212,14 @@ public class KithchenRemoteActivity extends AppCompatActivity {
                     @Override
                     public void onClick(View v) {
                         Intent light = new Intent(v.getContext(), KitchenLight.class);
+
+                        Bundle b = new Bundle();
+                        b.putString("name", getItem(position).getName()); //Your id
+                        b.putInt("setting", getItem(position).getSetting());
+                        light.putExtras(b);
+
                         startActivity(light);
+
                     }
                 });
             }

@@ -10,7 +10,7 @@ import android.util.Log;
  */
 public class KitchenDataBaseHelper extends SQLiteOpenHelper {
 
-    public static final String DATABASE_NAME = "Kitchen.db";
+    public static final String DATABASE_NAME = "KitchenDB.db";
     public static final int VERSION_NUMBER = 1;
     public static final String TABLE_NAME = "ApplianceTable";
     public static final String KEY_ID = "ID";
@@ -28,9 +28,9 @@ public class KitchenDataBaseHelper extends SQLiteOpenHelper {
         Log.i("ChatDatabaseHelper", "Calling onCreate");
         String CREATE_TABLE = "CREATE TABLE " +
                 TABLE_NAME + " (" + KEY_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
-                + KEY_TYPE + " TEXT NOT NULL, "
-                + KEY_NAME + " TEXT NOT NULL, "
-                + KEY_SETTING + " TEXT)";
+                + KEY_NAME + " TEXT, "
+                + KEY_TYPE + " TEXT, "
+                + KEY_SETTING + " INTEGER)";
 
         db.execSQL(CREATE_TABLE);
     }
