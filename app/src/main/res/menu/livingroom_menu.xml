@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+
+    <item android:id="@+id/action_one"
+        android:title="AUTOMOBILE"
+        android:icon="@drawable/room"
+        android:orderInCategory="102"
+        app:showAsAction="always" />
+
+
+    <item android:id="@+id/action_three"
+        android:title="HOUSE"
+        android:icon="@drawable/home1"
+        android:orderInCategory="103"
+        android:drawableLeft="@drawable/hori"
+        app:showAsAction="always" />
+
+    <item android:id="@+id/action_four"
+        android:title="KITCHEN"
+        android:icon="@drawable/kitchen"
+        android:orderInCategory="104"
+        android:drawableLeft="@drawable/hori"
+        app:showAsAction="always" />
+
+    <item android:id="@+id/action_five"
+        android:title="HELP"
+        android:icon="@drawable/help"
+        android:orderInCategory="105"
+        app:showAsAction="always" />
+
+
+</menu>

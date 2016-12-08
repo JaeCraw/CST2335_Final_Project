@@ -22,4 +22,7 @@
     <string name="volume">Volume</string>
     <string name="blinds">Blinds</string>
     <string name="blindsAdj">You have adjusted the blinds</string>
+    <string name="dialog_title">HELP</string>
+    <string name="author">Martin</string>
+    <string name="cancel">Cancel</string>
 </resources>
