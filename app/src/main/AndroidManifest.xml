@@ -2,6 +2,14 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.jae.cst2335_final_project">
 
+    <!--
+    needed
+    -->
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <!--
+    needed
+    -->
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -28,6 +36,10 @@
             android:label="@string/title_activity_kitchen_remote"
             android:theme="@style/AppTheme.NoActionBar"></activity>
         <!-- -->
+
+        <!--needed-->
+        <uses-permission android:name="android.permission.VIBRATE" />
+        <!--needed-->
 
     </application>
 

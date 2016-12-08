@@ -9,25 +9,61 @@ import android.os.Bundle;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
+/**
+ * @author Jacob Crawford
+ * this class holds the controls for a fridge
+ */
 public class Fridge extends AppCompatActivity {
 
+    /**
+     * Seekbar to change fridge temp
+     */
     private SeekBar fridgeTemp;
+
+    /**
+     * holds the value of tempurature
+     */
     private TextView tempText;
+
+    /**
+     * TextView saves appliance name
+     */
     private TextView fridgeName;
+
+    /**
+     * string to hold the name
+     */
     private String name;
+
+    /**
+     * object of KitchenDatabaseHelper
+     */
     public KitchenDataBaseHelper kDH;
+
+    /**
+     * object of SQLite to modify the database
+     */
     public SQLiteDatabase db;
 
+    /**
+     * On create. called when the class is created. Loads all the components of the activity and sets the listeners
+     * @param savedInstanceState arguments passed to the class
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_fridge);
 
+        //retrieves passed data
         Bundle b = getIntent().getExtras();
+
+        //instatiates database components
 
         kDH = new KitchenDataBaseHelper(this);
         db = kDH.getWritableDatabase();
+
+        //instatiates program variables
 
         tempText = (TextView) findViewById(R.id.fridgeTemp);
 
@@ -38,7 +74,7 @@ public class Fridge extends AppCompatActivity {
         fridgeTemp.setMax(50);
 
 
-
+        //if there are passed arguments, load it into the activity
         if(b != null){
             name = b.getString("name");
             fridgeName.setText(name);
@@ -48,6 +84,8 @@ public class Fridge extends AppCompatActivity {
 
         tempText.setText((fridgeTemp.getProgress() - 25) + "C");
 
+
+        //on click listener for the slider
         fridgeTemp.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
@@ -67,17 +105,22 @@ public class Fridge extends AppCompatActivity {
         });
     }
 
+    /**
+     * called when the project is closed. this is used to write to the databse
+     */
     @Override
     protected void onDestroy() {
         super.onDestroy();
 
         System.out.println("onDestroy");
 
+        //save last settings to the database
         ContentValues newSetting = new ContentValues();
         newSetting.put(KitchenDataBaseHelper.KEY_SETTING, fridgeTemp.getProgress());
         db.update(KitchenDataBaseHelper.TABLE_NAME, newSetting,
                 KitchenDataBaseHelper.KEY_NAME + "='"+ name + "'", null);
 
+        //close the database
         db.close();
 
 

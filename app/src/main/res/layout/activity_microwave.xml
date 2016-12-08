@@ -9,32 +9,39 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.jae.cst2335_final_project.Microwave">
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="New Text"
+        android:id="@+id/microwave_name"
+        android:layout_alignParentStart="true" />
+
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="number"
         android:ems="10"
-        android:id="@+id/inputTime"
+        android:id="@+id/microwavetimetxt"
         android:hint="@string/enter_time"
         android:backgroundTint="@android:color/darker_gray"
-        android:layout_below="@+id/microwave_progress_bar"
+        android:layout_below="@+id/microwave_timer"
         android:layout_alignParentStart="true" />
 
     <Button
         android:text="@string/start_timer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/onOffButton"
-        android:layout_below="@+id/inputTime"
+        android:id="@+id/microwave_startbutton"
+        android:layout_below="@+id/microwavetimetxt"
         android:layout_alignParentStart="true" />
 
     <Button
         android:text="@string/stop_timer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/microwave_stop"
+        android:id="@+id/microwave_stop_button"
         android:enabled="false"
-        android:layout_below="@+id/inputTime"
+        android:layout_below="@+id/microwavetimetxt"
         android:layout_toEndOf="@+id/AddAppliance" />
 
 
@@ -43,7 +50,7 @@
         style="?android:attr/progressBarStyleHorizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/microwave_progress_bar"
+        android:id="@+id/microwave_timer"
         android:visibility="invisible"
         android:max="100"
         android:layout_alignParentTop="true"
@@ -55,8 +62,8 @@
         android:text="@string/stop_timer"
         android:enabled="false"
         android:id="@+id/microwaveResetButton"
-        android:layout_alignTop="@+id/onOffButton"
-        android:layout_toEndOf="@+id/onOffButton" />
+        android:layout_alignTop="@+id/microwave_startbutton"
+        android:layout_toEndOf="@+id/microwave_startbutton" />
 
 
 </RelativeLayout>

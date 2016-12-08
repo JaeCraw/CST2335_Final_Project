@@ -14,37 +14,71 @@ import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ToggleButton;
 
+/**
+ * activity for light
+ */
 public class KitchenLight extends AppCompatActivity {
 
+    /**
+     * displays appliance name
+     */
     private TextView lightName;
+
+    /**
+     * light switch
+     */
     private Switch kitchenLight;
+
+    /**
+     * dimmer for the light
+     */
     private SeekBar kitchenDimmer;
+
+    /**
+     * holds appliance name
+     */
     private String name;
+
+    /**
+     * database helper to be written to
+     */
     public KitchenDataBaseHelper kDH;
+
+    /**
+     * object of SQLiteDatabase
+     */
     public SQLiteDatabase db;
 
+    /**
+     * called when the activity is started
+     * instantiates the items to be used and set the listeners
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_kitchen_light);
 
+        //bundle to recieve arguments
         Bundle b = getIntent().getExtras();
 
+        //instatiate the database
         kDH = new KitchenDataBaseHelper(this);
         db = kDH.getWritableDatabase();
 
+        //instatiate activity components
         lightName = (TextView) findViewById(R.id.LightName);
         kitchenLight = (Switch) findViewById(R.id.Kitchen_LightSwitch);
         kitchenDimmer = (SeekBar) findViewById(R.id.KitchenLigthDimmer);
 
-
+        //sets the program components if the is a bundle
         if(b != null){
             name = b.getString("name");
             lightName.setText(name);
             kitchenDimmer.setProgress(b.getInt("setting"));
         }
 
-
+        //onlick listener for the light switch
         kitchenLight.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
@@ -58,7 +92,7 @@ public class KitchenLight extends AppCompatActivity {
 
 
 
-
+        //listener for the slider
         kitchenDimmer.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
@@ -79,6 +113,9 @@ public class KitchenLight extends AppCompatActivity {
         });
     }
 
+    /**
+     * called when the program enters teardown. writes the last settings to the database and closes it
+     */
     @Override
     protected void onDestroy() {
         super.onDestroy();
