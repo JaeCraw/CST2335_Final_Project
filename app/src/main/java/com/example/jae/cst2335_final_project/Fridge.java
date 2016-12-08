@@ -1,7 +1,9 @@
 package com.example.jae.cst2335_final_project;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.SeekBar;
@@ -12,7 +14,9 @@ public class Fridge extends AppCompatActivity {
     private SeekBar fridgeTemp;
     private TextView tempText;
     private TextView fridgeName;
-    private int temp;
+    private String name;
+    public KitchenDataBaseHelper kDH;
+    public SQLiteDatabase db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,6 +25,9 @@ public class Fridge extends AppCompatActivity {
         setContentView(R.layout.activity_fridge);
 
         Bundle b = getIntent().getExtras();
+
+        kDH = new KitchenDataBaseHelper(this);
+        db = kDH.getWritableDatabase();
 
         tempText = (TextView) findViewById(R.id.fridgeTemp);
 
@@ -33,7 +40,8 @@ public class Fridge extends AppCompatActivity {
 
 
         if(b != null){
-            fridgeName.setText(b.getString("name"));
+            name = b.getString("name");
+            fridgeName.setText(name);
             fridgeTemp.setProgress(b.getInt("setting"));
         }
 
@@ -58,4 +66,22 @@ public class Fridge extends AppCompatActivity {
             }
         });
     }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+
+        System.out.println("onDestroy");
+
+        ContentValues newSetting = new ContentValues();
+        newSetting.put(KitchenDataBaseHelper.KEY_SETTING, fridgeTemp.getProgress());
+        db.update(KitchenDataBaseHelper.TABLE_NAME, newSetting,
+                KitchenDataBaseHelper.KEY_NAME + "='"+ name + "'", null);
+
+        db.close();
+
+
+
+    }
+
 }

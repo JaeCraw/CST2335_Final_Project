@@ -21,11 +21,11 @@
         <activity android:name=".KithchenRemoteActivity" />
         <activity android:name=".KitchenLight" />
         <activity android:name=".Fridge" />
-        <activity android:name=".Microwave"></activity>
-
-
-
+        <activity android:name=".Microwave" />
+        <activity
+            android:name=".KitchenRemote"
+            android:label="@string/title_activity_kitchen_remote"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
-
 
 </manifest>

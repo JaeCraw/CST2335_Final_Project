@@ -8,9 +8,14 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.AsyncTask;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.Snackbar;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
@@ -19,11 +24,11 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.RadioButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
-public class KithchenRemoteActivity extends AppCompatActivity {
-
+public class KitchenRemote extends AppCompatActivity {
 
     public ArrayList<KitchenDataObject> list;
     public ApplianceAdapter applianceAdapter;
@@ -35,9 +40,13 @@ public class KithchenRemoteActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_kithchen_remote);
+        setContentView(R.layout.activity_kitchen_remote);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
 
-         listView = (ListView) findViewById(R.id.listView);
+
+
+        listView = (ListView) findViewById(R.id.listView);
 
         addAppliance = (Button) findViewById(R.id.AddAppliance);
 
@@ -78,8 +87,52 @@ public class KithchenRemoteActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    public boolean onCreateOptionsMenu(Menu m) {
+        getMenuInflater().inflate(R.menu.menu_main, m);
+        return true;
+    }
+
+    public boolean onOptionsItemSelected(MenuItem mi) {
+        int id = mi.getItemId();
+        switch (id) {
 
 
+            case R.id.action_three:
+                Intent intent1 = new Intent(KitchenRemote.this, HouseSettingsRemote.class);
+                startActivity(intent1);
+                break;
+
+            case R.id.action_four:
+
+                Toast toast2 = Toast.makeText(this, getString(R.string.current_activity), Toast.LENGTH_SHORT);
+                toast2.show();
+                break;
+
+            case R.id.action_one:
+                Intent intent3 = new Intent(KitchenRemote.this, LivingRoomRemoteActivity.class);
+                startActivity(intent3);
+
+                break;
+
+            case R.id.action_five:
+                AlertDialog.Builder builder = new AlertDialog.Builder(this);
+                String dialog_title = "Help";
+                builder.setTitle(dialog_title);
+                builder.setIcon(R.drawable.help);
+                String helpMessage = "insert witty message";
+                builder.setMessage(helpMessage);
+                builder.setNegativeButton("cancel", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+
+                    }
+                });
+                builder.show();
+                break;
+        }
+        return true;
     }
 
     public void onDestroy(){
@@ -148,7 +201,7 @@ public class KithchenRemoteActivity extends AppCompatActivity {
 
     }
 
-    public class databaseLoader extends AsyncTask{
+    public class databaseLoader extends AsyncTask {
 
         @Override
         protected Object doInBackground(Object[] params) {
@@ -176,7 +229,7 @@ public class KithchenRemoteActivity extends AppCompatActivity {
         }
     }
 
-    public class ApplianceAdapter extends ArrayAdapter<KitchenDataObject>{
+    public class ApplianceAdapter extends ArrayAdapter<KitchenDataObject> {
 
         public ApplianceAdapter(Context ctx){
             super(ctx, 0);
@@ -190,7 +243,7 @@ public class KithchenRemoteActivity extends AppCompatActivity {
 
         public View getView(final int position, View convertView, ViewGroup parent) {
 
-            LayoutInflater inflater = KithchenRemoteActivity.this.getLayoutInflater();
+            LayoutInflater inflater = KitchenRemote.this.getLayoutInflater();
 
             String itemType = list.get(position).getType();
 

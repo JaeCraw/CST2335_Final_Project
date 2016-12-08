@@ -1,5 +1,7 @@
 <resources>
     <string name="app_name">CST2335_Final_Project</string>
-    <string name="title_kitchenappliance_list">KithenAppliances</string>
-    <string name="title_kitchenappliance_detail">KitchenAppliance Detail</string>
+    <string name="title_activity_kitchen_remote">KitchenRemote</string>
+    <string name="add_appliance">Add</string>
+    <string name="current_activity">You are already here</string>
+    <string name="kitchen_help_title">Help</string>
 </resources>

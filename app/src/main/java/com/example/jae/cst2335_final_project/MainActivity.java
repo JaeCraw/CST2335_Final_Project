@@ -22,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
         kitchenButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, KithchenRemoteActivity.class);
+                Intent intent = new Intent(MainActivity.this, KitchenRemote.class);
                 startActivity(intent);
             }
         });
