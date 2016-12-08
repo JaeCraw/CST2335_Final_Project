@@ -135,7 +135,7 @@ public class HouseTempActivity extends AppCompatActivity {
                 break;
 
             case R.id.action_four:
-                Intent intent2 = new Intent(HouseTempActivity.this, KithchenRemoteActivity.class);
+                Intent intent2 = new Intent(HouseTempActivity.this, KitchenRemote.class);
                 startActivity(intent2);
                 Toast toast2 = Toast.makeText(this, getString(R.string.toastkitchen), Toast.LENGTH_SHORT);
                 toast2.show();

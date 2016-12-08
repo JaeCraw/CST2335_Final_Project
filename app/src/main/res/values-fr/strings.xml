@@ -30,13 +30,19 @@
     //weather_house_activity
     <string name="weatherforcast">PRÉVISIONS MÉTÉOROLOGIQUES</string>
     <string name="statechange">Ottawa, ON</string>e
-    <string name="help_message">Auteur: Eric Pelley
-
-
-
-
-
-
+    <string name="help_message">
+        Auteur: Eric Pelley\n
+        Version: 32\n
+        Cliquez sur lune des options de menu pour démarrer\n
+        Garage:\n
+        Cliquez sur OUVERTURE pour ouvrir la porte du garage. Cela allumera également la lumière du garage.\n
+        Cliquez sur Fermer pour fermer la porte du garage. Cela éteindra également la lumière du garage.\n
+        Cliquez sur la lampe de garage pour activer la lumière du garage\n
+        Température de la maison:\n
+        Cliquez sur la zone de texte et écrivez une valeur pour la température, puis cliquez sur CHANGE TEMPERATURE.\n
+        Cliquez sur le bouton AJOUTER pour ajouter et supprimer les plannings que vous faites.\n
+        Météo:\n
+        Cliquez sur le menu Météo extérieur pour afficher la météo à lextérieur.
     </string>
     <string name="Help">SUR</string>
 

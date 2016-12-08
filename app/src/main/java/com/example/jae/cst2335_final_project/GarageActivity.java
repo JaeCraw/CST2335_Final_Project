@@ -1,28 +1,27 @@
 package com.example.jae.cst2335_final_project;
+/**
+ * @author Eric Pelley
+ * This Class Deals with the Garage Activity
+ * This Class lets you open and close the garage door while turning on and turning off the light
+ */
 
-import android.content.ContentValues;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.SharedPreferences;
-import android.media.Image;
 import android.os.Bundle;
-import android.preference.PreferenceManager;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Switch;
 import android.widget.Toast;
 
 /**
- * Created by pelle on 2016-11-30.
+ * This method extends AppCompatActivity and Initializes the variables for the class
  */
 public class GarageActivity extends AppCompatActivity {
 
@@ -32,6 +31,10 @@ public class GarageActivity extends AppCompatActivity {
     protected Switch switch1;
     protected Context Context1 =this;
 
+    /**
+     * First Activity that gets called
+     * @param savedInstanceState
+     */
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.garage_house_activity);
@@ -95,13 +98,23 @@ public class GarageActivity extends AppCompatActivity {
 
     }
 
+    /**
+     *
+     * OncreateOptionsMenu that inflates the house_menu
+     * @param m
+     * @return the house_menu
+     */
     public boolean onCreateOptionsMenu(Menu m) {
         getMenuInflater().inflate(R.menu.house_menu, m);
         return true;
     }
 
 
-
+    /**
+     * onOptionsItemSelected and it selects the MenuItem and adds functionality
+     * @param mi
+     * @return MenuItem
+     */
     public boolean onOptionsItemSelected(MenuItem mi) {
         int id = mi.getItemId();
         switch (id) {
@@ -115,7 +128,7 @@ public class GarageActivity extends AppCompatActivity {
                 break;
 
             case R.id.action_four:
-                Intent intent2 = new Intent(GarageActivity.this, KithchenRemoteActivity.class);
+                Intent intent2 = new Intent(GarageActivity.this, KitchenRemote.class);
                 startActivity(intent2);
                 Toast toast2 = Toast.makeText(this, getString(R.string.toastkitchen), Toast.LENGTH_SHORT);
                 toast2.show();

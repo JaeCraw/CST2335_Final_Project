@@ -2,7 +2,7 @@ package com.example.jae.cst2335_final_project;
 
 /**
  * @author Eric Pelley
- * This Program Saves Data and allows you to return to the program with the previous information you left.
+ * This Program Saves Data and allows you to return to the program with the previous information you left it with.
  */
 
 import android.content.Context;
@@ -34,7 +34,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
     @Override
 
     /**
-     * This class is Calling the onCreate Method
+     * First Activity that gets called
      */
     public void onCreate(SQLiteDatabase db) {
         db.execSQL(CREATE_CHAT_TABLE);
@@ -42,7 +42,6 @@ public class DataBaseHelper extends SQLiteOpenHelper {
     }
 
     /**
-     *
      * @param db SQLiteDatabase for the onUpgrade
      * @param olderVersion Checking for the older version
      * @param newVersion Checking for the newer version

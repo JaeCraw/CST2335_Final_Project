@@ -27,7 +27,7 @@
         <activity android:name=".AutomobileRemoteActivity" />
         <activity android:name=".HouseSettingsRemote"
             android:label="HOUSE"/>
-        <activity android:name=".KithchenRemoteActivity"></activity>
+        <activity android:name=".KitchenRemote"></activity>
     </application>
 
 </manifest>

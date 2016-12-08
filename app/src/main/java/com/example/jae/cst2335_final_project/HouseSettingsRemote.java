@@ -1,5 +1,10 @@
 package com.example.jae.cst2335_final_project;
 
+/**
+ * @author Eric Pelley
+ * This Class is the Main class. It runs and displays everything
+ */
+
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -13,11 +18,17 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+/**
+ * HouseSettings Remote that extends the AppCompatActivity
+ */
 public class HouseSettingsRemote extends AppCompatActivity {
 
     final Context Context = this;
 
     @Override
+    /**
+     * First Activity that gets called
+     */
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_house_settings_remote);
@@ -57,12 +68,23 @@ public class HouseSettingsRemote extends AppCompatActivity {
 
     }
 
+
+    /**
+     * Infales the House_menu class which displays the toolbar
+     * @param m
+     * @return true
+     */
     public boolean onCreateOptionsMenu(Menu m) {
         getMenuInflater().inflate(R.menu.house_menu, m);
         return true;
     }
 
 
+    /**
+     * Selects the items
+     * @param mi
+     * @return the cases and displays the toolbar items
+     */
     public boolean onOptionsItemSelected(MenuItem mi) {
         int id = mi.getItemId();
         switch (id) {
@@ -76,7 +98,7 @@ public class HouseSettingsRemote extends AppCompatActivity {
                 break;
 
             case R.id.action_four:
-                Intent intent2 = new Intent(HouseSettingsRemote.this, KithchenRemoteActivity.class);
+                Intent intent2 = new Intent(HouseSettingsRemote.this, KitchenRemote.class);
                 startActivity(intent2);
                 Toast toast2 = Toast.makeText(this, getString(R.string.toastkitchen), Toast.LENGTH_SHORT);
                 toast2.show();

@@ -1,5 +1,10 @@
 package com.example.jae.cst2335_final_project;
 
+/**
+ * @Author Eric Pelley
+ * This Class is the Main Activity
+ */
+
 import android.content.Intent;
 //import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -10,6 +15,9 @@ import android.widget.Button;
 public class MainActivity extends AppCompatActivity {
 
     @Override
+    /**
+     * First Activity that gets called
+     */
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
@@ -22,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
         kitchenButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, KithchenRemoteActivity.class);
+                Intent intent = new Intent(MainActivity.this, KitchenRemote.class);
                 startActivity(intent);
             }
         });

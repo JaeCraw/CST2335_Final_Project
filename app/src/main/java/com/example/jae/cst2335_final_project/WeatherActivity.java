@@ -1,5 +1,10 @@
 package com.example.jae.cst2335_final_project;
 
+/**
+ * @Author Eric Pelley
+ * This Class Deals with the Weather Activity. Which allows you to view the current weather.
+ */
+
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -32,6 +37,9 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.Locale;
 
+/**
+ * Weather Activity that extends AppCompatActivity
+ */
 public class WeatherActivity extends AppCompatActivity {
     protected static final String URL_STRING = "http://api.openweathermap.org/data/2.5/weather?q=ottawa,ca&APPID=d99666875e0e51521f0040a3d97d0f6a&mode=xml&units=metric";
     protected static final String URL_IMAGE = "http://openweathermap.org/img/w/";
@@ -42,6 +50,9 @@ public class WeatherActivity extends AppCompatActivity {
     private ProgressBar normProgBar;
 
     @Override
+    /**
+     * First Activity that gets called
+     */
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -56,6 +67,10 @@ public class WeatherActivity extends AppCompatActivity {
         normProgBar.setMax(100);
         new ForecastQuery().execute(null, null, null);
     }
+
+    /**
+     * Forcast Query that deals the AsyncTask
+     */
     private class ForecastQuery extends AsyncTask<String, Integer, String> {
         private String currentTemp = null;
         private String minTemp = null;
@@ -64,6 +79,9 @@ public class WeatherActivity extends AppCompatActivity {
         private Bitmap weatherImage = null;
 
         @Override
+        /**
+         * doInBackground method that deaks with the online connection for the weather
+         */
         protected String doInBackground(String... params) {
             InputStream inputStream = null;
             try {
@@ -129,6 +147,9 @@ public class WeatherActivity extends AppCompatActivity {
             }
         }
         @Override
+        /**
+         * Onprogress method that deals with the progress bar for the GUI
+         */
         protected void onProgressUpdate(Integer... values) {
             super.onProgressUpdate(values);
             normProgBar.setProgress(values[0]);
@@ -137,6 +158,9 @@ public class WeatherActivity extends AppCompatActivity {
             }
         }
         @Override
+        /**
+         * Displays the executed GUI when the Outside Weather is clicked on
+         */
         protected void onPostExecute(String s) {
             System.out.println("Postexecute");
             super.onPostExecute(s);
@@ -146,6 +170,11 @@ public class WeatherActivity extends AppCompatActivity {
             weatherImageView.setImageBitmap(weatherImage);
             normProgBar.setVisibility(View.INVISIBLE);
         }
+
+        /**
+         * Saves the image for the Current weather
+         * @param fname
+         */
         private void saveImage(String fname) {
             HttpURLConnection connection = null;
             try {
@@ -171,12 +200,23 @@ public class WeatherActivity extends AppCompatActivity {
             }
         }
     }
+
+    /**
+     * Infaltes the House_menu to display the toolbar
+     * @param m
+     * @return the house_menu
+     */
     public boolean onCreateOptionsMenu(Menu m) {
         getMenuInflater().inflate(R.menu.house_menu, m);
         return true;
     }
 
 
+    /**
+     * Deals with the cases for the toolbar
+     * @param mi
+     * @return the toolbar icons
+     */
     public boolean onOptionsItemSelected(MenuItem mi) {
         int id = mi.getItemId();
         switch (id) {
@@ -190,7 +230,7 @@ public class WeatherActivity extends AppCompatActivity {
                 break;
 
             case R.id.action_four:
-                Intent intent2 = new Intent(WeatherActivity.this, KithchenRemoteActivity.class);
+                Intent intent2 = new Intent(WeatherActivity.this, KitchenRemote.class);
                 startActivity(intent2);
                 Toast toast2 = Toast.makeText(this, getString(R.string.toastkitchen), Toast.LENGTH_SHORT);
                 toast2.show();
