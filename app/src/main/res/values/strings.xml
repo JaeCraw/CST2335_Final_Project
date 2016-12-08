@@ -1,7 +1,31 @@
 <resources>
     <string name="app_name">CST2335_Final_Project</string>
-    <string name="title_activity_kitchen_remote">KitchenRemote</string>
+    <string name="title_activity_kitchen_remote">Kitchen</string>
     <string name="add_appliance">Add</string>
     <string name="current_activity">You are already here</string>
     <string name="kitchen_help_title">Help</string>
+    <string name="kitchen_help_desription">
+        Made by: Jacob Crawford
+        Version 1.0.0
+
+        Press add to add an appliance.
+        Click the appliance name to view its controls
+    </string>
+    <string name="temp">Current Tempurature: </string>
+    <string name="temp_slider_label">Tempurature Slider:  </string>
+    <string name="light_text_on">Light is On</string>
+    <string name="light_text_off">Light is Off</string>
+    <string name="light_set_to">Light is set to: </string>
+    <string name="enter_time">Enter time</string>
+    <string name="start_timer">Start</string>
+    <string name="stop_timer">Stop</string>
+    <string name="reset_timer">Reset</string>
+    <string name="timer_done">Finished cooking</string>
+    <string name="no_number_error">Enter a number</string>
+    <string name="timer_stopped">Timer Stopped</string>
+    <string name="timer_reset">Timer Reset</string>
+    <string name="fridge">Fridge</string>
+    <string name="microwave">Microwave</string>
+    <string name="light">Light</string>
+    <string name="appliancename">Enter Appliance Name</string>
 </resources>

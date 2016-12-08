@@ -20,8 +20,8 @@
         app:showAsAction="always" />
 
     <item android:id="@+id/action_four"
-        android:title="KITCHEN"
-        android:icon="@drawable/kitchen"
+        android:title="AUTOMOBILE"
+        android:icon="@drawable/drive"
         android:orderInCategory="104"
         android:drawableLeft="@drawable/hori"
         app:showAsAction="always" />

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">CST2335_Final_Project</string>
+    <string name="title_activity_kitchen_remote">Cuisine</string>
+    <string name="add_appliance">ajouter</string>
+    <string name="kitchen_help_title">Aidez-moi</string>
+    <string name="kitchen_help_desription">
+        Par: Jacob Crawford
+        Version 1.0.0
+
+        Appuyez sur ajouter pour ajouter un appareil.
+        Cliquez sur le nom de l'appliance pour afficher ses contrôles
+    </string>
+    <string name="temp">Current température: </string>
+    <string name="temp_slider_label">Curseur de température:  </string>
+    <string name="light_text_on">La lumière est allumée</string>
+    <string name="light_text_off">La lumière est éteinte</string>
+    <string name="light_set_to">Est réglé sur: </string>
+    <string name="enter_time">Entrer le temps</string>
+    <string name="start_timer">Démarrer</string>
+    <string name="stop_timer">Arrêtez</string>
+    <string name="reset_timer">réinitialiser</string>
+    <string name="timer_done">Fini la cuisson</string>
+    <string name="no_number_error">Entrez un nombre</string>
+    <string name="timer_stopped">Minuteur arrêté</string>
+    <string name="timer_reset">Réinitialisation du minuteur</string>
+    <string name="fridge">le frigidaire</string>
+    <string name="microwave">la micro-onde</string>
+    <string name="light">lumière</string>
+    <string name="appliancename">Entrez le nom d'un appareil</string>
+</resources>

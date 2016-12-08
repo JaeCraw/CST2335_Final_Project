@@ -19,20 +19,20 @@
             android:id="@+id/radioFridge"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Fridge"
+            android:text="@string/fridge"
             android:checked="true" />
 
         <RadioButton
             android:id="@+id/radioLight"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Light" />
+            android:text="@string/light" />
 
         <RadioButton
             android:id="@+id/radioMicrowave"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Microwave" />
+            android:text="@string/microwave" />
 
     </RadioGroup>
 
@@ -44,7 +44,7 @@
         android:layout_marginLeft="4dp"
         android:layout_marginRight="4dp"
         android:layout_marginBottom="4dp"
-        android:hint="Enter Appliance Name" />
+        android:hint="@string/appliancename" />
 
 
 </LinearLayout>

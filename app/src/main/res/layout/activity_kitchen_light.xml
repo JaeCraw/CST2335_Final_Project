@@ -14,8 +14,8 @@
         android:layout_height="wrap_content"
         android:text="New Switch"
         android:id="@+id/Kitchen_LightSwitch"
-        android:textOn="Light On"
-        android:textOff="Light Off"
+        android:textOn="@string/light_text_on"
+        android:textOff="@string/light_text_off"
         android:layout_below="@+id/LightName"
         android:layout_alignParentStart="true" />
 

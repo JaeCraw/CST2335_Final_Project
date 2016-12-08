@@ -9,8 +9,6 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
@@ -28,6 +26,12 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 
+/**
+ * @author Jacob Crawford
+ *
+ * main activity for kitchen appliances
+ *
+ */
 public class KitchenRemote extends AppCompatActivity {
 
     public ArrayList<KitchenDataObject> list;
@@ -90,7 +94,7 @@ public class KitchenRemote extends AppCompatActivity {
     }
 
     public boolean onCreateOptionsMenu(Menu m) {
-        getMenuInflater().inflate(R.menu.menu_main, m);
+        getMenuInflater().inflate(R.menu.kitchen_main, m);
         return true;
     }
 
@@ -105,9 +109,8 @@ public class KitchenRemote extends AppCompatActivity {
                 break;
 
             case R.id.action_four:
-
-                Toast toast2 = Toast.makeText(this, getString(R.string.current_activity), Toast.LENGTH_SHORT);
-                toast2.show();
+                Intent intent4 = new Intent(KitchenRemote.this, AutomobileRemoteActivity.class);
+                startActivity(intent4);;
                 break;
 
             case R.id.action_one:
@@ -118,10 +121,10 @@ public class KitchenRemote extends AppCompatActivity {
 
             case R.id.action_five:
                 AlertDialog.Builder builder = new AlertDialog.Builder(this);
-                String dialog_title = "Help";
+                String dialog_title = getString(R.string.kitchen_help_title);
                 builder.setTitle(dialog_title);
                 builder.setIcon(R.drawable.help);
-                String helpMessage = "insert witty message";
+                String helpMessage = getString(R.string.kitchen_help_desription);
                 builder.setMessage(helpMessage);
                 builder.setNegativeButton("cancel", new DialogInterface.OnClickListener() {
                     @Override

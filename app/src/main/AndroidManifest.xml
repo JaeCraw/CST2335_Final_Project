@@ -18,7 +18,8 @@
         <activity android:name=".LivingRoomRemoteActivity" />
         <activity android:name=".AutomobileRemoteActivity" />
         <activity android:name=".HouseSettingsRemote" />
-        <activity android:name=".KithchenRemoteActivity" />
+
+        <!-- Jacob's Classes -->
         <activity android:name=".KitchenLight" />
         <activity android:name=".Fridge" />
         <activity android:name=".Microwave" />
@@ -26,6 +27,8 @@
             android:name=".KitchenRemote"
             android:label="@string/title_activity_kitchen_remote"
             android:theme="@style/AppTheme.NoActionBar"></activity>
+        <!-- -->
+
     </application>
 
 </manifest>

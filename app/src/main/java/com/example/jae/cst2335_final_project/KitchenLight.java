@@ -28,8 +28,6 @@ public class KitchenLight extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_kitchen_light);
 
-        System.out.println("onCreate");
-
         Bundle b = getIntent().getExtras();
 
         kDH = new KitchenDataBaseHelper(this);
@@ -51,9 +49,9 @@ public class KitchenLight extends AppCompatActivity {
             @Override
             public void onClick(View v){
                 if (kitchenLight.isChecked()){
-                    Toast.makeText(KitchenLight.this, "Light is turned on", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(KitchenLight.this, getString(R.string.light_text_on), Toast.LENGTH_SHORT).show();
                 }else{
-                    Toast.makeText(KitchenLight.this, "Light is turned off", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(KitchenLight.this, getString(R.string.light_text_off), Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -85,16 +83,11 @@ public class KitchenLight extends AppCompatActivity {
     protected void onDestroy() {
         super.onDestroy();
 
-        System.out.println("onDestroy");
-
         ContentValues newSetting = new ContentValues();
         newSetting.put(KitchenDataBaseHelper.KEY_SETTING, kitchenDimmer.getProgress());
         db.update(KitchenDataBaseHelper.TABLE_NAME, newSetting,
                 KitchenDataBaseHelper.KEY_NAME + "='"+ name + "'", null);
 
         db.close();
-
-
-
     }
 }

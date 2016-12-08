@@ -54,7 +54,7 @@ public class Microwave extends AppCompatActivity {
                                 // vibrate and show text when done cooking
 //                                Vibrator mVibrator = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
 //                                mVibrator.vibrate(500);
-                                Toast.makeText(getApplicationContext(), "Finished cooking", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(getApplicationContext(), getString(R.string.timer_done), Toast.LENGTH_SHORT).show();
 
                                 //automatically turn off the microwave
                                 turnOff();
@@ -63,7 +63,7 @@ public class Microwave extends AppCompatActivity {
                         timer.start();
 
                     }catch(NumberFormatException e ){
-                        Toast.makeText(getApplicationContext(), "error rouge leader", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(), getString(R.string.no_number_error), Toast.LENGTH_SHORT).show();
                     }
 
                 }
@@ -79,7 +79,7 @@ public class Microwave extends AppCompatActivity {
             public void onClick(View view) {
                 timer.cancel();
                 turnOff();
-                Toast.makeText(getApplicationContext(), "Timer stopped", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), getString(R.string.timer_stopped), Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -90,7 +90,7 @@ public class Microwave extends AppCompatActivity {
             public void onClick(View v) {
                 timer.cancel();
                 resetClock();
-                Toast.makeText(getApplicationContext(), "Timer reset", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), getString(R.string.timer_reset), Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -98,7 +98,6 @@ public class Microwave extends AppCompatActivity {
 
     public void turnOn(){
         // microwave is off
-        stop.setText("stop");
         stop.setEnabled(true);
         reset.setEnabled(true);
         cookingTimer.setVisibility(View.VISIBLE);
