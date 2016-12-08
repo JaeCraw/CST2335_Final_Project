@@ -10,19 +10,34 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 /**
- * Created by bmohm90 on 2016-12-01.
+ * @ Author: Bashir Mohmand
+ * Odometer activity of Automobile
+ * Display of odometer and a trip counter that can be reset to 0, displays oil change
+ * with a button that will change it to textview to the last old change
  */
 public class OdometerActivity extends AppCompatActivity {
-
+    /**
+     *declaring variables
+     */
     DatabaseHelper dbHelper;
     SQLiteDatabase db;
-    private boolean mTwoPane;
     final Context context = this;
-    protected CruiseActivity newCruiseActivity;
-
+    protected TextView mileageText;
+    protected TextView tripAText;
+    protected TextView tripBText;
+    protected TextView oilchangeText;
+    protected Button reset1;
+    protected Button reset2;
+    /**
+     * Inflates the layout, main entry to the class
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,12 +47,49 @@ public class OdometerActivity extends AppCompatActivity {
         db = dbHelper.getWritableDatabase();
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+         mileageText = (TextView)findViewById(R.id.textView16);
+         tripAText = (TextView)findViewById(R.id.textView18);
+        tripBText = (TextView)findViewById(R.id.textView20);
+        oilchangeText = (TextView)findViewById(R.id.textView36);
+        reset1 = (Button)findViewById(R.id.button12);
+        reset2 = (Button)findViewById(R.id.button13);
+
+        reset1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String newString ="0";
+                tripAText.setText(newString);
+            }
+        });
+
+        reset2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+              String newString = mileageText.getText().toString();
+                tripBText.setText(newString);
+            }
+        });
+
+
     }
+
+    /**
+     * Inflates on create menu items
+     * @param m
+     * @return
+     */
     public boolean onCreateOptionsMenu(Menu m) {
         getMenuInflater().inflate(R.menu.menu_main, m);
         return true;
     }
 
+
+    /**
+     * Adding functionality to the toolbar items
+     * @param mi
+     * @return
+     */
 
     public boolean onOptionsItemSelected(MenuItem mi) {
         int id = mi.getItemId();
@@ -52,7 +104,7 @@ public class OdometerActivity extends AppCompatActivity {
                 break;
 
             case R.id.action_four:
-                Intent intent2 = new Intent(OdometerActivity.this, KithchenRemoteActivity.class);
+                Intent intent2 = new Intent(OdometerActivity.this, KitchenRemote.class);
                 startActivity(intent2);
                 Toast toast2 = Toast.makeText(this, getString(R.string.kitchen_settings), Toast.LENGTH_SHORT);
                 toast2.show();

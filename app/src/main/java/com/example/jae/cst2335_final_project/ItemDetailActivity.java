@@ -1,5 +1,9 @@
 package com.example.jae.cst2335_final_project;
 
+/**
+ * @ Author: Bashir Mohmand
+ */
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -11,10 +15,10 @@ import android.support.v7.app.ActionBar;
 import android.view.MenuItem;
 
 /**
- * An activity representing a single Item detail screen. This
+ * An activity representing a single Message detail screen. This
  * activity is only used narrow width devices. On tablet-size devices,
  * item details are presented side-by-side with a list of items
- * in a {@link ItemListActivity}.
+ * in a {@link ToDoListActivity}.
  */
 public class ItemDetailActivity extends AppCompatActivity {
 
@@ -53,12 +57,12 @@ public class ItemDetailActivity extends AppCompatActivity {
             // Create the detail fragment and add it to the activity
             // using a fragment transaction.
             Bundle arguments = new Bundle();
-            arguments.putString(ListDetailFragment.ARG_ITEM_ID,
-                    getIntent().getStringExtra(ListDetailFragment.ARG_ITEM_ID));
-            ListDetailFragment fragment = new ListDetailFragment();
+            arguments.putString(ItemDetailFragment.ARG_ITEM_ID,
+                    getIntent().getStringExtra(ItemDetailFragment.ARG_ITEM_ID));
+            ItemDetailFragment fragment = new ItemDetailFragment();
             fragment.setArguments(arguments);
             getSupportFragmentManager().beginTransaction()
-                    .add(R.id.item_detail_container, fragment)
+                    .add(R.id.message_detail_container, fragment)
                     .commit();
         }
     }

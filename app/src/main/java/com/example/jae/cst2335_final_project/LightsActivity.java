@@ -5,7 +5,6 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
@@ -14,16 +13,21 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
-import android.widget.ProgressBar;
 import android.widget.SeekBar;
 import android.widget.Switch;
 import android.widget.Toast;
 
 /**
- * Created by bmohm90 on 2016-12-01.
+ * @ Author: Salman Saghir
+ * Lights Activity of Automobile
+ * This allows you to turn on the lights of the car, either normal daytime running lights or high beams or no lights on
+ * if the normal daytime running lights are on the high beam will be turned off,
+ * if the high beam is switched on the normal lights will be off
  */
 public class LightsActivity extends AppCompatActivity {
-
+    /**
+     * declares the variable
+     */
     final Context context = this;
     protected SeekBar seekbar;
     protected Switch switch1;
@@ -33,6 +37,10 @@ public class LightsActivity extends AppCompatActivity {
     protected ImageView imageView;
     protected String kmString;
 
+    /**
+     * inflates the layout and the main entry to the activity
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,21 +49,26 @@ public class LightsActivity extends AppCompatActivity {
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
+/**
+ * Initializes the variables
+ */
          seekbar = (SeekBar)findViewById(R.id.seekBar3);
          switch1 = (Switch)findViewById(R.id.switch3);
         switch2 = (Switch)findViewById(R.id.switch4);
         switch3 = (Switch)findViewById(R.id.switch5);
         seekBar = (SeekBar)findViewById(R.id.seekBar3);
         imageView = (ImageView)findViewById(R.id.imageView2);
+/**
+ * save data
+ */
 
-        // save data
         final SharedPreferences mSharedPrefs = PreferenceManager.getDefaultSharedPreferences(context);
         SharedPreferences.Editor mEditor = mSharedPrefs.edit();
         int mProgress = seekBar.getProgress();
         mEditor.putInt("lightsBarProgress", mProgress).commit();
-
-        //retrieve data
+/**
+ * retrieve the data
+ */
         int mProgresss = mSharedPrefs.getInt("lightsBarProgress", 0);
         seekBar.setProgress(mProgresss);
         switch1.setChecked(mSharedPrefs.getBoolean("mainLights Off", false));
@@ -69,6 +82,9 @@ public class LightsActivity extends AppCompatActivity {
 
     }
 
+    /**
+     * Setting light properties and save data into file
+     */
     public void setLightsProperties() {
 
         switch1.setOnClickListener(new View.OnClickListener() {
@@ -99,6 +115,9 @@ public class LightsActivity extends AppCompatActivity {
         });
     }
 
+    /**
+     * settings for normal lights with save of data into a file
+     */
     public void setnormalLightsProperties(){
 
         switch2.setOnClickListener(new View.OnClickListener() {
@@ -129,6 +148,9 @@ public class LightsActivity extends AppCompatActivity {
 
     }
 
+    /**
+     * light properties for high beam with insertion of data into a file
+     */
     public void sethighBeamsProperties() {
 
         switch3.setOnClickListener(new View.OnClickListener() {
@@ -154,12 +176,21 @@ public class LightsActivity extends AppCompatActivity {
         });
     }
 
+    /**
+     * toolbar menu inflater, displays items
+     * @param m
+     * @return
+     */
     public boolean onCreateOptionsMenu(Menu m) {
         getMenuInflater().inflate(R.menu.menu_main, m);
         return true;
     }
 
-
+    /**
+     * sets the toolbar item functionality
+     * @param mi
+     * @return
+     */
     public boolean onOptionsItemSelected(MenuItem mi) {
         int id = mi.getItemId();
         switch (id) {
@@ -174,7 +205,7 @@ public class LightsActivity extends AppCompatActivity {
                 break;
 
             case R.id.action_four:
-                Intent intent2 = new Intent(LightsActivity.this, KithchenRemoteActivity.class);
+                Intent intent2 = new Intent(LightsActivity.this, KitchenRemote.class);
                 startActivity(intent2);
                 Toast toast2 = Toast.makeText(this, getString(R.string.kitchen_settings), Toast.LENGTH_SHORT);
                 toast2.show();

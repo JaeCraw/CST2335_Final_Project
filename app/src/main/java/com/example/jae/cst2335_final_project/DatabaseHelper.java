@@ -7,7 +7,8 @@ import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 
 /**
- * Created by bmohm90 on 2016-10-19.
+ * @ Author: Bashir Mohmand
+ * Creating and upgrading database tables
  */
 public class DatabaseHelper extends SQLiteOpenHelper {
 
@@ -22,16 +23,18 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     private static final String ACTIVITY_NAME = "DatabaseHelper";
 
-
+// constructor
     public DatabaseHelper(Context ctx) {
         super(ctx, DATABASE_NAME, null, VERSION_NUM);
     }
 
+// On create, execute to create table
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL(CREATE_CHAT_TABLE);
         Log.i(ACTIVITY_NAME, "Calling onCreate");
     }
+
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int olderVersion, int newVersion) {

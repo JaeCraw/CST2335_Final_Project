@@ -21,9 +21,16 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-
+/*
+@ Author: Bashir Mohmand
+    Radio activity of Automobile
+    If you click on a particular button that station will play if you press
+    and hold the button it will allow you to edit the channel
+ */
 public class RadioActivity extends AppCompatActivity {
-
+    /**
+     * declares the variables
+     */
     DatabaseHelper dbHelper;
     SQLiteDatabase db;
     private boolean mTwoPane;
@@ -38,6 +45,11 @@ public class RadioActivity extends AppCompatActivity {
     protected String button6;
     protected String channelplaying;
     SharedPreferences.Editor mEditor;
+
+    /**
+     * Inflates the layout, main entry to the class
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,8 +59,11 @@ public class RadioActivity extends AppCompatActivity {
         db = dbHelper.getWritableDatabase();
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        text1 = (TextView)findViewById(R.id.textView2);
+/**
+ * initializing variables
+ */
 
+        text1 = (TextView)findViewById(R.id.textView2);
         final Button station1 = (Button) findViewById(R.id.button);
         final Button station2 = (Button) findViewById(R.id.button6);
         final Button station3 = (Button) findViewById(R.id.button5);
@@ -57,13 +72,16 @@ public class RadioActivity extends AppCompatActivity {
         final Button station6 = (Button) findViewById(R.id.button2);
         final TextView newT1= (TextView)findViewById(R.id.textView2);
 
-
-        // Save button text
+/**
+ * save button text into a file
+ */
          mSharedPrefs = PreferenceManager.getDefaultSharedPreferences(context);
          mEditor = mSharedPrefs.edit();
         button4 = station4.getText().toString();
         mEditor.putString("button4", button4).commit();
-        // get and set button text
+/**
+ * get and set buttom text from a file
+ */
         String getChannelplaying = mSharedPrefs.getString("channelplaying", channelplaying);
         String rbutton1 = mSharedPrefs.getString("button1", button1);
         String rbutton2 = mSharedPrefs.getString("button2", button2);
@@ -78,9 +96,15 @@ public class RadioActivity extends AppCompatActivity {
         station5.setText(rbutton5);
         station6.setText(rbutton6);
         newT1.setText(getChannelplaying);
-
+/**
+ * retrives the play icon from drawable
+ */
         final Drawable myDrawable = ResourcesCompat.getDrawable(getResources(), R.drawable.play, null);
-
+/**
+ * radio station button handler,clicking it will
+ * display text of button into a textbox
+ * and add the play icon to a button clicked
+ */
         station1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -159,6 +183,10 @@ public class RadioActivity extends AppCompatActivity {
             }
         });
 
+
+/**
+ * long click listener to change the name/text of a particular button/station with a dialog box
+ */
         station1.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
@@ -420,13 +448,21 @@ public class RadioActivity extends AppCompatActivity {
         });
     }
 
-
+    /**
+     * toolbar item inflater
+     * @param m
+     * @return
+     */
     public boolean onCreateOptionsMenu(Menu m) {
         getMenuInflater().inflate(R.menu.menu_main, m);
         return true;
     }
 
-
+    /**
+     * toolbar item functionality
+     * @param mi
+     * @return
+     */
     public boolean onOptionsItemSelected(MenuItem mi) {
         int id = mi.getItemId();
         switch (id) {
@@ -440,7 +476,7 @@ public class RadioActivity extends AppCompatActivity {
                 break;
 
             case R.id.action_four:
-                Intent intent2 = new Intent(RadioActivity.this, KithchenRemoteActivity.class);
+                Intent intent2 = new Intent(RadioActivity.this, KitchenRemote.class);
                 startActivity(intent2);
                 Toast toast2 = Toast.makeText(this, getString(R.string.kitchen_settings), Toast.LENGTH_SHORT);
                 toast2.show();

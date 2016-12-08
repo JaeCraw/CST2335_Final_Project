@@ -1,24 +1,30 @@
 package com.example.jae.cst2335_final_project;
 
+import android.animation.Animator;
+import android.animation.ObjectAnimator;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.view.animation.AlphaAnimation;
+import android.view.animation.Animation;
+import android.view.animation.DecelerateInterpolator;
 import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import org.w3c.dom.Text;
-
 /**
- * Created by bmohm90 on 2016-12-01.
+ * @ Author: Salman Saghir
+ * Fuel Activity of Automobile
  */
 public class FuelActivity extends AppCompatActivity {
 
@@ -30,9 +36,9 @@ public class FuelActivity extends AppCompatActivity {
     protected CruiseActivity newCruiseActivity;
     protected ProgressBar progressBar;
     protected TextView textDistance;
-    protected TextView fillView1;
     protected TextView lowgasText;
     protected TextView fillingText;
+    protected TextView fuelText;
     protected Button fillgasButton;
 
     @Override
@@ -45,22 +51,66 @@ public class FuelActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+
+
+ // initializing variables
         progressBar = (ProgressBar)findViewById(R.id.progressBar);
          textDistance = (TextView)findViewById(R.id.textView34);
-         fillView1 = (TextView)findViewById(R.id.textView23);
          lowgasText = (TextView)findViewById(R.id.textView38);
          fillingText = (TextView)findViewById(R.id.textView37);
          fillgasButton = (Button)findViewById(R.id.button14);
+        fuelText = (TextView)findViewById(R.id.textView23);
 
+        fillGas();
+
+        fillgasButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                new FillUpTank().execute(null, null, null);
+                calculateDistanceGas();
+            }
+        });
+
+    }
+
+ // what to do when gas is low
+    public void fillGas(){
+        String fuelString = fuelText.getText().toString();
+        int fuelAmount = Integer.parseInt(fuelString);
+        if(fuelAmount<7){
+            lowgasText.setVisibility(View.VISIBLE);
+            Animation anim = new AlphaAnimation(0.0f, 1.0f);
+            anim.setDuration(50); //You can manage the time of the blink with this parameter
+            anim.setStartOffset(20);
+            anim.setRepeatMode(Animation.REVERSE);
+            anim.setRepeatCount(Animation.INFINITE);
+            lowgasText.startAnimation(anim);
+        }else{
+            lowgasText.setVisibility(View.INVISIBLE);
+        }
+
+    }
+
+
+// calculating  fuel distance amount
+    public void calculateDistanceGas(){
+        String fuelString = fuelText.getText().toString();
+        int fuelAmount = Integer.parseInt(fuelString);
+        String fuelcalcString = textDistance.getText().toString();
+        int fuelDistancAmount = Integer.parseInt(fuelcalcString);
+        int distanceAmount = (fuelAmount/50)*fuelAmount;
+        textDistance.setText(distanceAmount);
 
 
     }
+
+// toolbar item inflater
     public boolean onCreateOptionsMenu(Menu m) {
         getMenuInflater().inflate(R.menu.menu_main, m);
         return true;
     }
 
-
+// toolbar item selection functionality
     public boolean onOptionsItemSelected(MenuItem mi) {
         int id = mi.getItemId();
         switch (id) {
@@ -75,7 +125,7 @@ public class FuelActivity extends AppCompatActivity {
                 break;
 
             case R.id.action_four:
-                Intent intent2 = new Intent(FuelActivity.this, KithchenRemoteActivity.class);
+                Intent intent2 = new Intent(FuelActivity.this, KitchenRemote.class);
                 startActivity(intent2);
                 Toast toast2 = Toast.makeText(this, getString(R.string.kitchen_settings), Toast.LENGTH_SHORT);
                 toast2.show();
@@ -106,8 +156,59 @@ public class FuelActivity extends AppCompatActivity {
         }
         return true;
 
-
     }
 
 
+
+// using AsyncTask to update the progressbar, upto filling the tank
+private class FillUpTank extends AsyncTask<String, Integer, String> {
+
+
+
+    @Override
+    protected String doInBackground(String... params) {
+
+        publishProgress(100);
+        return "";
+
+    }
+
+    @Override
+    protected void onProgressUpdate(Integer... values) {
+        super.onProgressUpdate(values);
+
+        ObjectAnimator animation = ObjectAnimator.ofInt(progressBar, "progress", 0, 100);
+        animation.setDuration(5000);
+        animation.setInterpolator(new DecelerateInterpolator());
+        animation.addListener(new Animator.AnimatorListener() {
+            @Override
+            public void onAnimationStart(Animator animator) { }
+
+            @Override
+            public void onAnimationEnd(Animator animator) {
+                //do something when the countdown is complete
+            }
+
+            @Override
+            public void onAnimationCancel(Animator animator) { }
+
+            @Override
+            public void onAnimationRepeat(Animator animator) { }
+        });
+        animation.start();
+        fillingText.setVisibility(View.VISIBLE);
+    }
+
+    @Override
+    protected void onPostExecute(String s) {
+        super.onPostExecute(s);
+        String fuelString = fuelText.getText().toString();
+        int fuelAmount = Integer.parseInt(fuelString);
+        String newtext = "100";
+        fuelText.setText(newtext);
+        progressBar.setVisibility(View.INVISIBLE);
+        fillingText.setVisibility(View.INVISIBLE);
+
+    }
+}
 }

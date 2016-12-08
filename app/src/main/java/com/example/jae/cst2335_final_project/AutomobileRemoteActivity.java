@@ -4,40 +4,32 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.database.sqlite.SQLiteDatabase;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.ListView;
-import android.widget.TextView;
 import android.widget.Toast;
 
+
+
+/*  @ Author: Bashir Mohmand & Salman Saghir
+       Main Automobile Activity
+ */
 public class AutomobileRemoteActivity extends AppCompatActivity {
 
     protected static final String ACTIVITY_NAME = "AutomobileRemoteActivity";
-    ListView automobileListView;
-    DatabaseHelper dbHelper;
-   // AutomobileAdaptor messageAdapter;
-    SQLiteDatabase db;
-    private boolean mTwoPane;
     final Context context = this;
+
+
+    // Activity Begins
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_automobile_remote);
 
-        dbHelper = new DatabaseHelper(AutomobileRemoteActivity.this);
-        db = dbHelper.getWritableDatabase();
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -49,7 +41,7 @@ public class AutomobileRemoteActivity extends AppCompatActivity {
         Button driveButton = (Button) findViewById(R.id.driveButton);
         Button odometerButton = (Button) findViewById(R.id.odometerButton);
 
-
+// Button Handlers
         temperatureButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -113,13 +105,13 @@ public class AutomobileRemoteActivity extends AppCompatActivity {
 
     }
 
-
+// Toolbar Menu
     public boolean onCreateOptionsMenu(Menu m) {
         getMenuInflater().inflate(R.menu.menu_main, m);
         return true;
     }
 
-
+// What to do when each toolbar item is selected
     public boolean onOptionsItemSelected(MenuItem mi) {
         int id = mi.getItemId();
         switch (id) {
@@ -133,7 +125,7 @@ public class AutomobileRemoteActivity extends AppCompatActivity {
                 break;
 
             case R.id.action_four:
-                Intent intent2 = new Intent(AutomobileRemoteActivity.this, KithchenRemoteActivity.class);
+                Intent intent2 = new Intent(AutomobileRemoteActivity.this, KitchenRemote.class);
                 startActivity(intent2);
                 Toast toast2 = Toast.makeText(this, getString(R.string.kitchen_settings), Toast.LENGTH_SHORT);
                 toast2.show();
@@ -164,64 +156,5 @@ public class AutomobileRemoteActivity extends AppCompatActivity {
         }
         return true;
     }
-/**
-    private class AutomobileAdaptor extends ArrayAdapter<String> {
-
-        public AutomobileAdaptor(Context newContext) {
-            super(newContext, 0);
-        }
-
-
-        public int getCount(){
-            return messageArrayList.size();
-        }
-
-        public String getItem(int position){
-            return messageArrayList.get(position);
-        }
-
-        public View getView(int position, View convertView, ViewGroup parent){
-
-            LayoutInflater inflater = MessageListActivity.this.getLayoutInflater();
-            View result;
-            if(position%2 == 0)
-                result = inflater.inflate(R.layout.chat_row_incoming, null);
-            else
-                result = inflater.inflate(R.layout.chat_row_outgoing, null);
-            TextView message = (TextView)result.findViewById(R.id.message_text);
-            message.setText( messageText );
-
-            result.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    if (mTwoPane) {
-                        Bundle arguments = new Bundle();
-                        arguments.putString(MessageDetailFragment.ARG_ITEM_ID, messageText);
-                        MessageDetailFragment fragment = new MessageDetailFragment();
-                        fragment.setArguments(arguments);
-                        getSupportFragmentManager().beginTransaction()
-                                .replace(R.id.message_detail_container, fragment)
-                                .commit();
-                    } else {
-                        Context context = v.getContext();
-                        Intent intent = new Intent(context, MessageDetailActivity.class);
-                        intent.putExtra(MessageDetailFragment.ARG_ITEM_ID, messageText);
-
-                        context.startActivity(intent);
-                    }
-                }
-            });
-
-            return result;
-
-        }
-
-    }
-*/
-public void onBackPressed() {
-// TODO Auto-generated method stub
-    moveTaskToBack(true);
-    super.onBackPressed();
-}
 
 }

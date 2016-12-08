@@ -1,6 +1,5 @@
 package com.example.jae.cst2335_final_project;
 
-import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.ContentValues;
 import android.content.Context;
@@ -9,12 +8,10 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
-import android.provider.SyncStateContract;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -34,12 +31,17 @@ import java.util.List;
 
 
 /**
- * Created by bmohm90 on 2016-12-01.
+ * @ Author: Bashir Mohmand and Salman Saghir
+ * Appointments/List Activity of Automobile
+ * This displays a to-do list that will let you add an item to your to-do list and
+ * will also allow you to delete the item
  */
 public class ToDoListActivity extends AppCompatActivity {
 
 
-
+    /**
+     * declaring variables
+     */
    protected  DatabaseHelper dbHelper;
     protected  SQLiteDatabase db;
     private boolean mTwoPane;
@@ -52,7 +54,10 @@ public class ToDoListActivity extends AppCompatActivity {
     protected  Button addButton;
     protected  TextView listItemText;
     protected CustomAdaptor customAdaptor;
-
+    /**
+     * This method allows the main entry for class and inflates layout of class
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -62,16 +67,23 @@ public class ToDoListActivity extends AppCompatActivity {
         db = dbHelper.getWritableDatabase();
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        addButton = (Button) findViewById(R.id.button7);
+/**
+ * variable initialization and addition of listview, arraylist and adaptor
+ */
 
+        addButton = (Button) findViewById(R.id.button7);
         automobileListview = (ListView) findViewById(R.id.listView2);
         automobileArray = new ArrayList<String>();
         customAdaptor = new CustomAdaptor(this);
-
         automobileListview.setAdapter(customAdaptor);
-
+/**
+ * Querying the database for items
+ */
         Cursor cursor;
         cursor = db.rawQuery("SELECT * FROM CHAT_TABLE", null);
+/**
+ * displaying the database items
+ */
 
         cursor.moveToFirst();
         while (!cursor.isAfterLast()) {
@@ -79,6 +91,10 @@ public class ToDoListActivity extends AppCompatActivity {
             automobileArray.add(cursor.getString(messageIndex));
             cursor.moveToNext();
         }
+
+/**
+ * adds on click listener for addbutton to add an item into the list
+ */
 
         addButton.setOnClickListener(new View.OnClickListener() {
 
@@ -121,13 +137,10 @@ public class ToDoListActivity extends AppCompatActivity {
 
             }
         });
-
-
-        View recyclerView = findViewById(R.id.item_list);
-        assert recyclerView != null;
-        setupRecyclerView((RecyclerView) recyclerView);
-
-        if (findViewById(R.id.item_detail_container) != null) {
+/**
+ * condition to display mode of the activity
+ */
+        if (findViewById(R.id.message_detail_container) != null) {
             // The detail container view will be present only in the
             // large-screen layouts (res/values-w900dp).
             // If this view is present, then the
@@ -136,7 +149,10 @@ public class ToDoListActivity extends AppCompatActivity {
         }
     }
 
-
+    /**
+     * setting the recyclerview for the listview
+     * @param recyclerView
+     */
     private void setupRecyclerView(@NonNull RecyclerView recyclerView) {
         recyclerView.setAdapter(new SimpleItemRecyclerViewAdapter(DummyContent.ITEMS));
     }
@@ -157,6 +173,11 @@ public class ToDoListActivity extends AppCompatActivity {
             return new ViewHolder(view);
         }
 
+        /**
+         * Displaying fragment or activity of the detail item
+         * @param holder
+         * @param position
+         */
         @Override
         public void onBindViewHolder(final ViewHolder holder, int position) {
             holder.mItem = mValues.get(position);
@@ -168,16 +189,16 @@ public class ToDoListActivity extends AppCompatActivity {
                 public void onClick(View v) {
                     if (mTwoPane) {
                         Bundle arguments = new Bundle();
-                        arguments.putString(ListDetailFragment.ARG_ITEM_ID, holder.mItem.id);
-                        ListDetailFragment fragment = new ListDetailFragment();
+                        arguments.putString(ItemDetailFragment.ARG_ITEM_ID, holder.mItem.id);
+                        ItemDetailFragment fragment = new ItemDetailFragment();
                         fragment.setArguments(arguments);
                         getSupportFragmentManager().beginTransaction()
-                                .replace(R.id.item_detail_container, fragment)
+                                .replace(R.id.message_detail_container, fragment)
                                 .commit();
                     } else {
                         Context context = v.getContext();
                         Intent intent = new Intent(context, ItemDetailActivity.class);
-                        intent.putExtra(ListDetailFragment.ARG_ITEM_ID, holder.mItem.id);
+                        intent.putExtra(ItemDetailFragment.ARG_ITEM_ID, holder.mItem.id);
 
                         context.startActivity(intent);
                     }
@@ -185,6 +206,10 @@ public class ToDoListActivity extends AppCompatActivity {
             });
         }
 
+        /**
+         * getting size of the list
+         * @return
+         */
         @Override
         public int getItemCount() {
             return mValues.size();
@@ -200,7 +225,7 @@ public class ToDoListActivity extends AppCompatActivity {
                 super(view);
                 mView = view;
                 mIdView = (TextView) view.findViewById(R.id.id);
-                mContentView = (TextView) view.findViewById(R.id.id1);
+                mContentView = (TextView) view.findViewById(R.id.content);
             }
 
             @Override
@@ -210,9 +235,9 @@ public class ToDoListActivity extends AppCompatActivity {
         }
     }
 
-
-
-
+    /**
+     * onDestroy closes the database
+     */
     @Override
     public void onDestroy() {
         super.onDestroy();
@@ -223,13 +248,21 @@ public class ToDoListActivity extends AppCompatActivity {
         }
     }
 
-
+    /**
+     * inflates the toolbar items
+     * @param m
+     * @return
+     */
     public boolean onCreateOptionsMenu(Menu m) {
         getMenuInflater().inflate(R.menu.menu_main, m);
         return true;
     }
 
-
+    /**
+     * sets the functionality for toolbar items
+     * @param mi
+     * @return
+     */
     public boolean onOptionsItemSelected(MenuItem mi) {
         int id = mi.getItemId();
         switch (id) {
@@ -243,7 +276,7 @@ public class ToDoListActivity extends AppCompatActivity {
                 break;
 
             case R.id.action_four:
-                Intent intent2 = new Intent(ToDoListActivity.this, KithchenRemoteActivity.class);
+                Intent intent2 = new Intent(ToDoListActivity.this, KitchenRemote.class);
                 startActivity(intent2);
                 Toast toast2 = Toast.makeText(this, getString(R.string.kitchen_settings), Toast.LENGTH_SHORT);
                 toast2.show();
@@ -276,7 +309,9 @@ public class ToDoListActivity extends AppCompatActivity {
 
     }
 
-
+    /**
+     * custom adapter used for the listview including a text and a delete button
+     */
     private class CustomAdaptor extends ArrayAdapter<String> {
 
 
@@ -301,7 +336,7 @@ public class ToDoListActivity extends AppCompatActivity {
                 view = inflater.inflate(R.layout.automobile_listview, null);
             }
 
-            //Handle TextView and display string from your list
+            //Handle TextView and display string from the list
             listItemText = (TextView) view.findViewById(R.id.textView8);
             listItemText.setText(automobileArray.get(position));
 
@@ -313,7 +348,7 @@ public class ToDoListActivity extends AppCompatActivity {
                 @Override
                 public void onClick(View v) {
                     //do something
-                    automobileArray.remove(position); //or some other task
+                    automobileArray.remove(position); // removing the item from the list
                     customAdaptor.notifyDataSetChanged();
                 }
             });
