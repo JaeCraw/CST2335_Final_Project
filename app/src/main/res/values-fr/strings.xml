@@ -5,11 +5,11 @@
     <string name="add_appliance">ajouter</string>
     <string name="kitchen_help_title">Aidez-moi</string>
     <string name="kitchen_help_desription">
-        Par: Jacob Crawford
+        par Jacob Crawford
         Version 1.0.0
 
         Appuyez sur ajouter pour ajouter un appareil.
-        Cliquez sur le nom de l'appliance pour afficher ses contrôles
+        Cliquez sur le nom de lappliance pour afficher ses contrôles
     </string>
     <string name="temp">Current température: </string>
     <string name="temp_slider_label">Curseur de température:  </string>
@@ -27,5 +27,5 @@
     <string name="fridge">le frigidaire</string>
     <string name="microwave">la micro-onde</string>
     <string name="light">lumière</string>
-    <string name="appliancename">Entrez le nom d'un appareil</string>
+    <string name="appliancename">Entrez le nom dun appareil</string>
 </resources>
