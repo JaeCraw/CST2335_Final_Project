@@ -13,12 +13,20 @@
                                 Version: 1.0\n\n
                                 Vehicle Temperature: Activate Front or Back Switch to start AC/HEATER
                                                      Use slider from Right(COLD) to Left(HEAT)\n
-                                Fuel:\n
-                                Radio:\n
-                                To Do List:\n
-                                Lights:\n
-                                Odometer:\n
-                                Cruise:    </string>
+                                Fuel: First box dispalys amount of fuel in tank, second show the distance
+                                      a vehicle can travel with the amount of fuel \n
+                                Radio: 6 Preset stations, press once on the button and it will play the station, press and hold
+                                        a button to edit the channel\n
+                                To Do List: Add appointments or to do items to the list with the Add Item button,
+                                            each item has its own deleted button to remove the item\n
+                                Lights:   turn Lights On/Off switch on to activate lights,
+                                          after activating you have access to turning on the normal headlights or high beams, there is a seekbar to dim or brighten inner lights\n
+                                Odometer: First box shows main odometer, second and third for trips traveled that can be reset to 0 with the reset buttons,
+                                          every 6000km there will be a text and light appearing to do oil change\n
+                                Cruise: Main cruise control On/Off switch to have access to the On/Off button of cruise on at a particular speed,
+                                        there is an option in the bottom to enter your own kilometers that a vehicle will travel, enter number of km and press the set button.
+
+    </string>
 
 
     <string name="dialog_Title">HELP</string>
@@ -92,6 +100,8 @@
     <string name="living_settings">LIVINGROOM SETTINGS</string>
     <string name="title_item_list">Items</string>
     <string name="title_item_detail">Item Detail</string>
+    <string name="title_itemlist_list">Items</string>
+    <string name="title_itemlist_detail">Item_list Detail</string>
 
 
 </resources>

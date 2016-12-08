@@ -55,15 +55,13 @@
             android:layout_height="60dp"
             android:id="@+id/seekBar"
             android:layout_gravity="center_horizontal"
-            android:layout_below="@+id/switch1"
             android:bottomRightRadius="10dp"
             android:bottomLeftRadius="10dp"
             android:topLeftRadius="10dp"
             android:topRightRadius="10dp"
-            android:layout_alignParentLeft="true"
-            android:layout_toStartOf="@+id/textView32"
             style="@android:style/Widget.Holo.Light.SeekBar"
-           />
+            android:layout_below="@+id/textView39"
+            android:layout_alignParentStart="true" />
 
 
         <Switch
@@ -110,6 +108,26 @@
             android:layout_above="@+id/seekBar2"
             android:layout_alignParentEnd="true"
             android:background="#f6eded" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="@string/cold"
+            android:id="@+id/textView39"
+            android:background="#faf3f3"
+            android:layout_below="@+id/switch1"
+            android:layout_alignParentStart="true" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="@string/hot"
+            android:id="@+id/textView40"
+            android:background="#f6eded"
+            android:layout_below="@+id/switch1"
+            android:layout_alignParentEnd="true" />
 
     </RelativeLayout>
 
