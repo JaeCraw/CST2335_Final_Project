@@ -65,23 +65,7 @@ public class KitchenRemote extends AppCompatActivity {
 
         Cursor c = db.rawQuery("SELECT * FROM " + KitchenDataBaseHelper.TABLE_NAME, null);
 
-//        if (c!=null) {
-//            c.moveToFirst();
-//            //Sorts through each row of the db adding it to the list
-//            while(!c.isAfterLast()){
-//
-//
-//
-//                list.add(new KitchenDataObject(
-//                        c.getString(c.getColumnIndex(KitchenDataBaseHelper.KEY_TYPE)),
-//                        c.getString(c.getColumnIndex(KitchenDataBaseHelper.KEY_NAME)),
-//                        c.getInt(c.getColumnIndex(KitchenDataBaseHelper.KEY_SETTING))
-//                        ));
-//                applianceAdapter.notifyDataSetChanged();
-//                c.moveToNext();
-//            }
-//        }
-
+        //calls the asycn task to load the db
         new databaseLoader().execute();
 
         addAppliance.setOnClickListener(new View.OnClickListener() {
@@ -93,11 +77,21 @@ public class KitchenRemote extends AppCompatActivity {
 
     }
 
+    /**
+     * Called when the toolbar is created
+     * @param m
+     * @return
+     */
     public boolean onCreateOptionsMenu(Menu m) {
         getMenuInflater().inflate(R.menu.kitchen_main, m);
         return true;
     }
 
+    /**
+     * called when the user clicks on a toolbar option
+     * @param mi
+     * @return
+     */
     public boolean onOptionsItemSelected(MenuItem mi) {
         int id = mi.getItemId();
         switch (id) {
@@ -138,11 +132,17 @@ public class KitchenRemote extends AppCompatActivity {
         return true;
     }
 
+    /**
+     * when the activity is closed, close down the database
+     */
     public void onDestroy(){
         super.onDestroy();
         db.close();
     }
 
+    /**
+     * called when the usere presses the add button. launches a custom dialog box to create the new application and adds it to the database
+     */
     public void addNewAppliance() {
         AlertDialog.Builder custBuilder = new AlertDialog.Builder(this);
 
@@ -204,8 +204,16 @@ public class KitchenRemote extends AppCompatActivity {
 
     }
 
+    /**
+     * async task to load the database
+     */
     public class databaseLoader extends AsyncTask {
 
+        /**
+         * task that is to be run in the background
+         * @param params
+         * @return
+         */
         @Override
         protected Object doInBackground(Object[] params) {
 
@@ -232,6 +240,9 @@ public class KitchenRemote extends AppCompatActivity {
         }
     }
 
+    /**
+     * adapter for the array list
+     */
     public class ApplianceAdapter extends ArrayAdapter<KitchenDataObject> {
 
         public ApplianceAdapter(Context ctx){
