@@ -8,6 +8,7 @@ import android.support.design.widget.Snackbar;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -37,6 +38,9 @@ public class LivingRoomLamp1 extends AppCompatActivity {
         setContentView(R.layout.activity_living_room_lamp1);
         back = (ImageButton) findViewById(R.id.backButton1);
         aswitch = (Switch) findViewById(R.id.switch1);
+
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
 
         SharedPreferences switchPref = getSharedPreferences("Switch", Context.MODE_PRIVATE);
         on = switchPref.getBoolean("Switch", false);

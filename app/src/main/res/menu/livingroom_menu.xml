@@ -16,14 +16,12 @@
         android:title="HOUSE"
         android:icon="@drawable/home1"
         android:orderInCategory="103"
-        android:drawableLeft="@drawable/hori"
         app:showAsAction="always" />
 
     <item android:id="@+id/action_four"
         android:title="KITCHEN"
         android:icon="@drawable/kitchen"
         android:orderInCategory="104"
-        android:drawableLeft="@drawable/hori"
         app:showAsAction="always" />
 
     <item android:id="@+id/action_five"

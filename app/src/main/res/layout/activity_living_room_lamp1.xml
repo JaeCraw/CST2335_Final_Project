@@ -9,18 +9,23 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.jae.cst2335_final_project.LivingRoomLamp1">
+
+ <android.support.v7.widget.LinearLayoutCompat
+     android:layout_width="match_parent"
+     android:layout_height="wrap_content"
+     android:id="@+id/view">
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
-        android:layout_height="40dp"
+        android:layout_height="60dp"
 
         android:background="#27e737"
 
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true" >  <View
+        android:layout_alignParentStart="true">  <View
         android:layout_width="1dip"
         android:layout_height="match_parent"
         android:background="#ffffff" /></android.support.v7.widget.Toolbar>
+ </android.support.v7.widget.LinearLayoutCompat>
 
     <Switch
         android:layout_width="wrap_content"
@@ -45,7 +50,7 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="@string/lamp1"
         android:id="@+id/textView"
-        android:layout_alignParentTop="true"
+        android:layout_below="@+id/view"
         android:layout_alignParentStart="true" />
 
 </RelativeLayout>
