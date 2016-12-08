@@ -198,6 +198,7 @@ public class KitchenRemote extends AppCompatActivity {
 
         AlertDialog custAlert = custBuilder.create();
 
+        //shows the custom alert
         custAlert.show();
 
 
@@ -245,16 +246,34 @@ public class KitchenRemote extends AppCompatActivity {
      */
     public class ApplianceAdapter extends ArrayAdapter<KitchenDataObject> {
 
+        /**
+         * default constructor. requires the current context to run
+         * @param ctx
+         */
         public ApplianceAdapter(Context ctx){
             super(ctx, 0);
         }
 
+
+        /**
+         * gets a count of all the elements
+         */
+
         public int getCount() { return list.size(); }
 
+        //
+
+        /**
+         * gets an item from the array list
+         * @param position
+         * @return
+         */
         public KitchenDataObject getItem(int position){
             return list.get(position);
         }
 
+
+        //returns the selected view
         public View getView(final int position, View convertView, ViewGroup parent) {
 
             LayoutInflater inflater = KitchenRemote.this.getLayoutInflater();
@@ -262,6 +281,8 @@ public class KitchenRemote extends AppCompatActivity {
             String itemType = list.get(position).getType();
 
             View result = null;
+
+                //if the launch activity is a fridge, launch the fridge activity
             if (itemType.equals("Fridge")){
                 result = inflater.inflate(R.layout.appliance_item_layout, null);
                 TextView message = (TextView) result.findViewById(R.id.appliance_name);
@@ -284,6 +305,7 @@ public class KitchenRemote extends AppCompatActivity {
                     }
                 });
 
+                //if the appliance type is a microwave, launch the microwave activity
             }else if(itemType.equals("Microwave")) {
                 result = inflater.inflate(R.layout.appliance_item_layout, null);
                 TextView message = (TextView) result.findViewById(R.id.appliance_name);
@@ -302,6 +324,7 @@ public class KitchenRemote extends AppCompatActivity {
                     }
                 });
 
+                //if the appliance type is a light, launch the light controls
             }else if(itemType.equals("Light")){
                 result = inflater.inflate(R.layout.appliance_item_layout, null);
                 TextView message = (TextView) result.findViewById(R.id.appliance_name);
@@ -323,6 +346,7 @@ public class KitchenRemote extends AppCompatActivity {
                 });
             }
 
+            //returns the result
             return result;
         }
 
