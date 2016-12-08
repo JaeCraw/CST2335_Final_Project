@@ -9,10 +9,24 @@ import android.view.View;
 import android.widget.ImageButton;
 import android.widget.SeekBar;
 
+/**
+ * @author Martin Speelman
+ */
 public class LivingRoomBlinds extends AppCompatActivity {
 
+    /**
+     * sets the value for the blinds
+     */
     SeekBar blinds;
+    /**
+     * back button
+     */
     ImageButton back;
+
+    /**
+     * first method called when the activity is launched
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

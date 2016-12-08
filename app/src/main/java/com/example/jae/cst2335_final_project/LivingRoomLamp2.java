@@ -9,10 +9,25 @@ import android.view.View;
 import android.widget.ImageButton;
 import android.widget.SeekBar;
 
+/**
+ * @author Martin Speelman
+ * This is the lamp 2 in the living room. it is a dimmable lamp.
+ */
 public class LivingRoomLamp2 extends AppCompatActivity {
 
+    /**
+     * Babk button
+     */
     ImageButton back;
+    /**
+     * Seek bar to change the brightness of the lamp
+     */
     SeekBar seekBar;
+
+    /**
+     *Firt method called when the activity is called
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

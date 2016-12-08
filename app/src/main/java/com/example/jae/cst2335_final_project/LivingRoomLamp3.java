@@ -13,11 +13,24 @@ import android.view.View;
 import android.widget.ImageButton;
 import android.widget.SeekBar;
 
+/**
+ * @author Martin Speelman
+ * This is the third lamp in the living room. it is dimable as well as changes the color.
+ */
 public class LivingRoomLamp3 extends AppCompatActivity {
-
+    /**
+     * seek bar for the lamp adjustment
+     */
     SeekBar seek;
+    /**
+     * Back button
+     */
     ImageButton back;
 
+    /**
+     * Fist method hat will be called
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

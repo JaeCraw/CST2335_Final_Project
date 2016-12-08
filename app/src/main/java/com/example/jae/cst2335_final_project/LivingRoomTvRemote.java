@@ -15,23 +15,73 @@ import android.widget.ImageButton;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+/**
+ * @author Martin Speelman
+ * This activity is the television remote for the living room.
+ */
 public class LivingRoomTvRemote extends AppCompatActivity {
 
+    /**
+     * Back button
+     */
     ImageButton back;
+    /**
+     * Volume up buton
+     */
     ImageButton up;
+    /**
+     * Volume down button
+     */
     ImageButton down;
+    /**
+     * Channel button down
+     */
     ImageButton left;
+    /**
+     * Channel up button
+     */
     ImageButton right;
+    /**
+     * Enter button chooses the channel
+     */
     ImageButton enter;
+    /**
+     * Progress bar to show the volume level
+     */
     ProgressBar volBar;
+    /**
+     * Turn the television on or off
+     */
     ImageButton powerBtn;
+    /**
+     * the button to choose the channel
+     */
     Button chooseChannel;
+    /**
+     * allows you to type the chennel into the textbox
+     */
     EditText channelEddit;
+    /**
+     * displays the channel
+     */
     TextView channelTXT;
+    /**
+     *  holds the value for the volume
+     */
     int volume;
+    /**
+     * holds the value for
+     */
     int channel;
+    /**
+     * hold the value for the power
+     */
     boolean power;
 
+    /**
+     * first metho called when the activity is launched
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,6 +95,7 @@ public class LivingRoomTvRemote extends AppCompatActivity {
         channel = chanelPref.getInt("Chanel", 000);
         volume = volPref.getInt("Volume", 0);
 
+        enter = (ImageButton) findViewById(R.id.okButton);
         back = (ImageButton) findViewById(R.id.backButtonTv);
         up = (ImageButton) findViewById(R.id.upArrow);
         down = (ImageButton) findViewById(R.id.downArrow);
@@ -86,14 +137,16 @@ public class LivingRoomTvRemote extends AppCompatActivity {
         down.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                volume--;
-                volBar.setProgress(volume);
+                if(volume -1 >= 0) {
+                    volume--;
+                    volBar.setProgress(volume);
 
-                SharedPreferences pref = getSharedPreferences("Volume", Context.MODE_PRIVATE);
-                SharedPreferences.Editor editer = pref.edit();
+                    SharedPreferences pref = getSharedPreferences("Volume", Context.MODE_PRIVATE);
+                    SharedPreferences.Editor editer = pref.edit();
 
-                editer.putInt("Volume", volume);
-                editer.commit();
+                    editer.putInt("Volume", volume);
+                    editer.commit();
+                }
             }
         });
 
@@ -168,7 +221,21 @@ public class LivingRoomTvRemote extends AppCompatActivity {
                 }
             }
         });
+        enter.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(Integer.parseInt(channelEddit.getText().toString()) >=0) {
+                    channelTXT.setText(getString(R.string.chanel) + " " + channelEddit.getText());
+                    channel = Integer.parseInt(channelEddit.getText().toString());
 
+                    SharedPreferences pref = getSharedPreferences("Chanel", Context.MODE_PRIVATE);
+                    SharedPreferences.Editor editer = pref.edit();
+
+                    editer.putInt(getString(R.string.chanel), channel);
+                    editer.commit();
+                }
+            }
+        });
     }
 
     @Override
@@ -176,11 +243,5 @@ public class LivingRoomTvRemote extends AppCompatActivity {
         super.onStart();
         Log.i("TvRemote", "OnStart");
 
-   /*     SharedPreferences powerPref = getSharedPreferences("Power", Context.MODE_PRIVATE);
-        SharedPreferences chanelPref = getSharedPreferences("Chanel", Context.MODE_PRIVATE);
-
-        power = powerPref.getBoolean("Power", false);
-        channelTXT.setText(chanelPref.getString("Chanel", "Chanel 000"));
-        */
     }
 }

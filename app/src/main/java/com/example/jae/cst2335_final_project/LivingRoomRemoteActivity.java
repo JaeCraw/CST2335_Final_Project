@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,17 +18,21 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * @author Martin Speelman
+ * Chooses all the different smart items in the living room
+ *
+ */
 public class LivingRoomRemoteActivity extends AppCompatActivity {
 
     public ListView list;
     String[] menuList;
-
-   /* Button l1;
-    Button l2;
-    Button l3;
-    Button tv; */
     LivingRoomDataBaseHelper db;
 
+    /**
+     * First thing that loads up when the activity is called
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -61,47 +66,6 @@ public class LivingRoomRemoteActivity extends AppCompatActivity {
 
             }
         });
-
-
-                //   list  = (ListView) findViewById(R.id.livingRoomList);
-
-                //   ListAdapter listAdapter = new ListAdapter(this);
-                //   list.setAdapter(listAdapter);
-
-/*
-        l1 = (Button) findViewById(R.id.lamp1);
-        l2 = (Button) findViewById(R.id.lamp2);
-        l3 = (Button) findViewById(R.id.lamp3);
-        tv = (Button) findViewById(R.id.tvRemoteBTN);
-
-        l1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(LivingRoomRemoteActivity.this, LivingRoomLamp1.class);
-                startActivity(intent);
-            }
-        });
-        l2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(LivingRoomRemoteActivity.this, LivingRoomLamp2.class);
-                startActivity(intent);
-            }
-        });
-        l3.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(LivingRoomRemoteActivity.this, LivingRoomLamp3.class);
-                startActivity(intent);
-            }
-        });
-        tv.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(LivingRoomRemoteActivity.this, LivingRoomTvRemote.class);
-                startActivity(intent);
-            }
-        });*/
 
     }
 

@@ -9,11 +9,20 @@ import android.view.View;
 import android.widget.ImageButton;
 import android.widget.Switch;
 
+/**
+ * @author Martin Speelman
+ * The first lamp in the livivng room. This lamp is only an on off switch.
+ */
 public class LivingRoomLamp1 extends AppCompatActivity {
 
     ImageButton back;
     Switch aswitch;
     boolean on;
+
+    /**
+     * First thing to be called when the activity is called
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
