@@ -23,6 +23,9 @@
     <string name="blinds">Blinds</string>
     <string name="blindsAdj">You have adjusted the blinds</string>
     <string name="dialog_title">HELP</string>
-    <string name="author">Martin</string>
+    <string name="author">
+        Author Martin.
+        This is the lamp 1 in the living room. There is a switch to turn the light on or off.
+    </string>
     <string name="cancel">Cancel</string>
 </resources>

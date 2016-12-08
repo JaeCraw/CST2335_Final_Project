@@ -21,4 +21,10 @@
     <string name="volume">Le volume</string>
     <string name="blinds">Stores</string>
     <string name="blindsAdj">Vous avez ajusté les stores</string>
+    <string name="dialog_title">Aider</string>
+    <string name="author">
+        Auteur Martin.
+        Il sagit de la lampe 1 dans le salon. Il ya un interrupteur pour allumer ou éteindre la lumière.
+    </string>
+    <string name="cancel">Annuler</string>
 </resources>
