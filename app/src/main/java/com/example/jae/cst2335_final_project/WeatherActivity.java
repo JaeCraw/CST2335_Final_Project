@@ -40,6 +40,7 @@ public class WeatherActivity extends AppCompatActivity {
     final Context context = this;
     private TextView currentTextView, minTextView, maxTextView;
     private ProgressBar normProgBar;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -61,6 +62,7 @@ public class WeatherActivity extends AppCompatActivity {
         private String maxTemp = null;
         private String iconFilename = null;
         private Bitmap weatherImage = null;
+
         @Override
         protected String doInBackground(String... params) {
             InputStream inputStream = null;
@@ -131,6 +133,7 @@ public class WeatherActivity extends AppCompatActivity {
             super.onProgressUpdate(values);
             normProgBar.setProgress(values[0]);
             if (values[0] == 100) {
+
             }
         }
         @Override
@@ -210,7 +213,6 @@ public class WeatherActivity extends AppCompatActivity {
                 builder.setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-
                     }
                 });
                 builder.show();
@@ -218,5 +220,4 @@ public class WeatherActivity extends AppCompatActivity {
         }
         return true;
     }
-
 }

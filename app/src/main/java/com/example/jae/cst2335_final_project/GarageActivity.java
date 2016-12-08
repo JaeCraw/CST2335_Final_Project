@@ -30,7 +30,7 @@ public class GarageActivity extends AppCompatActivity {
     protected Button closeButton;
     protected ImageView imageView1;
     protected Switch switch1;
-    protected Context Context1;
+    protected Context Context1 =this;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -54,6 +54,7 @@ public class GarageActivity extends AppCompatActivity {
                 toast4.show();
                 Toast toast8 = Toast.makeText(getApplicationContext(), "Garage Light On" , Toast.LENGTH_SHORT);
                 toast8.show();
+                switch1.setChecked(true);
             }
         });
 
@@ -67,6 +68,7 @@ public class GarageActivity extends AppCompatActivity {
                 toast5.show();
                 Toast toast9 = Toast.makeText(getApplicationContext(), "Garage Light Off" , Toast.LENGTH_SHORT);
                 toast9.show();
+                switch1.setChecked(false);
 
             }
         });
@@ -144,5 +146,4 @@ public class GarageActivity extends AppCompatActivity {
         }
         return true;
     }
-
 }

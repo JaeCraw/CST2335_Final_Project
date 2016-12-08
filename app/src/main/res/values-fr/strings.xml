@@ -30,7 +30,14 @@
     //weather_house_activity
     <string name="weatherforcast">PRÉVISIONS MÉTÉOROLOGIQUES</string>
     <string name="statechange">Ottawa, ON</string>e
-    <string name="help_message">Auteur: Eric Pelley</string>
+    <string name="help_message">Auteur: Eric Pelley
+
+
+
+
+
+
+    </string>
     <string name="Help">SUR</string>
 
     <string name="toastauto">CONFIGURATION AUTOMOBILE</string>
